@@ -35,4 +35,35 @@ public abstract class Drawable {
         return this.baseHeight * ((double) ScreenConfig.CURRENT_SCREEN_HEIGHT / ScreenConfig.BASE_SCREEN_HEIGHT);
     }
 
+    public double getBaseX() {
+        return baseX;
+    }
+
+    public void setBaseX(double baseX) {
+        this.baseX = baseX;
+    }
+
+    public double getBaseY() {
+        return baseY;
+    }
+
+    public void setBaseY(double baseY) {
+        this.baseY = baseY;
+    }
+
+    public double getBaseWidth() {
+        return baseWidth;
+    }
+
+    public void setBaseWidth(double baseWidth) {
+        this.baseWidth = baseWidth;
+    }
+
+    public double getBaseHeight() {
+        return baseHeight;
+    }
+
+    public void setBaseHeight(double baseHeight) {
+        this.baseHeight = baseHeight;
+    }
 }

@@ -1,5 +1,6 @@
 package sample.game;
 
+import javafx.animation.AnimationTimer;
 import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -12,12 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlappyGame {
+    public static final double MS_PER_UPDATE = 200.0;
+
     private final Pane root;
     private final GraphicsContext graphics;
 
+    private boolean running;
     private List<Drawable> drawables;
+    private Drawable bird;
 
-    public FlappyGame () {
+    public FlappyGame() {
         this.root = new Pane();
         Canvas canvas = new ResizableCanvas(root);
         this.root.getChildren().add(canvas);
@@ -25,11 +30,25 @@ public class FlappyGame {
         this.root.widthProperty().addListener(evt -> resized());
         this.root.heightProperty().addListener(evt -> resized());
 
+        this.running = true;
         this.drawables = new ArrayList<>();
-        this.drawables.add(new DrawableImage(50, 50, 300, 100, "jermasus.png"));
-
+        this.bird = new DrawableImage(50, 50, 300, 100, "jermasus.png");
+        this.drawables.add(this.bird);
         resized();
-        draw();
+
+        new AnimationTimer() {
+            long last = -1;
+
+            @Override
+            public void handle(long now) {
+                if (last == -1) {
+                    last = now;
+                }
+                update((now - last) / 1000000000.0);
+                last = now;
+                draw();
+            }
+        }.start();
     }
 
     public Parent getRoot() {
@@ -47,11 +66,15 @@ public class FlappyGame {
         draw();
     }
 
-    private void update() {
-
+    private void update(double elapsedTime) {
+        this.bird.setBaseX(this.bird.getBaseX() + (100.0 * elapsedTime));
+        if (this.bird.getBaseX() > 1000) {
+            this.running = false;
+        }
     }
 
     private void draw() {
+        this.graphics.clearRect(0, 0, this.root.getWidth(), this.root.getHeight());
         for (Drawable drawable : this.drawables) {
             drawable.draw(this.graphics);
         }
