@@ -15,7 +15,7 @@ public class FlappyGame {
     private final Pane root;
     private final GraphicsContext graphics;
 
-    private List<Drawable> resizables;
+    private List<Drawable> drawables;
 
     public FlappyGame () {
         this.root = new Pane();
@@ -25,8 +25,8 @@ public class FlappyGame {
         this.root.widthProperty().addListener(evt -> resized());
         this.root.heightProperty().addListener(evt -> resized());
 
-        this.resizables = new ArrayList<>();
-        this.resizables.add(new DrawableImage(50, 50, 100, 100));
+        this.drawables = new ArrayList<>();
+        this.drawables.add(new DrawableImage(50, 50, 300, 100, "jermasus.png"));
 
         resized();
         draw();
@@ -39,7 +39,9 @@ public class FlappyGame {
     private void resized() {
         ScreenConfig.CURRENT_SCREEN_WIDTH = this.root.getWidth();
         ScreenConfig.CURRENT_SCREEN_HEIGHT = this.root.getHeight();
-        for (Drawable resizeable : this.resizables) {
+
+        //TODO resize drawables on seperate thread
+        for (Drawable resizeable : this.drawables) {
             resizeable.resize();
         }
         draw();
@@ -50,8 +52,8 @@ public class FlappyGame {
     }
 
     private void draw() {
-        for (Drawable resizeable : this.resizables) {
-            resizeable.draw(this.graphics);
+        for (Drawable drawable : this.drawables) {
+            drawable.draw(this.graphics);
         }
     }
 }
