@@ -4,9 +4,9 @@ import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import sample.game.drawable.CanvasSprite;
-import sample.game.drawable.ResizableCanvasElement;
+import sample.game.drawable.DrawableImage;
+import sample.game.drawable.Drawable;
+import sample.game.drawable.ScreenConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class FlappyGame {
     private final Pane root;
     private final GraphicsContext graphics;
 
-    private List<ResizableCanvasElement> resizables;
+    private List<Drawable> resizables;
 
     public FlappyGame () {
         this.root = new Pane();
@@ -26,8 +26,9 @@ public class FlappyGame {
         this.root.heightProperty().addListener(evt -> resized());
 
         this.resizables = new ArrayList<>();
-        this.resizables.add(new CanvasSprite(50, 50, 100, 100));
+        this.resizables.add(new DrawableImage(50, 50, 100, 100));
 
+        resized();
         draw();
     }
 
@@ -36,8 +37,10 @@ public class FlappyGame {
     }
 
     private void resized() {
-        for (ResizableCanvasElement resizeable : this.resizables) {
-            resizeable.resize(this.root.getWidth(), this.root.getHeight());
+        ScreenConfig.CURRENT_SCREEN_WIDTH = this.root.getWidth();
+        ScreenConfig.CURRENT_SCREEN_HEIGHT = this.root.getHeight();
+        for (Drawable resizeable : this.resizables) {
+            resizeable.resize();
         }
         draw();
     }
@@ -47,7 +50,7 @@ public class FlappyGame {
     }
 
     private void draw() {
-        for (ResizableCanvasElement resizeable : this.resizables) {
+        for (Drawable resizeable : this.resizables) {
             resizeable.draw(this.graphics);
         }
     }

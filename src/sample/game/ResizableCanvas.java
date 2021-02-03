@@ -1,12 +1,9 @@
 package sample.game;
 
-import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Control;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import sample.game.drawable.CanvasSprite;
 
 public class ResizableCanvas extends Canvas {
 
