@@ -18,7 +18,6 @@ public class FlappyGame {
     private final Pane root;
     private final GraphicsContext graphics;
 
-    private boolean running;
     private List<Drawable> drawables;
     private Drawable bird;
 
@@ -30,7 +29,6 @@ public class FlappyGame {
         this.root.widthProperty().addListener(evt -> resized());
         this.root.heightProperty().addListener(evt -> resized());
 
-        this.running = true;
         this.drawables = new ArrayList<>();
         this.bird = new DrawableImage(50, 50, 300, 100, "jermasus.png");
         this.drawables.add(this.bird);
@@ -68,9 +66,6 @@ public class FlappyGame {
 
     private void update(double elapsedTime) {
         this.bird.setBaseX(this.bird.getBaseX() + (100.0 * elapsedTime));
-        if (this.bird.getBaseX() > 1000) {
-            this.running = false;
-        }
     }
 
     private void draw() {
