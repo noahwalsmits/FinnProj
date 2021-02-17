@@ -12,7 +12,7 @@ public class DrawableImage extends Drawable {
     public DrawableImage(double baseX, double baseY, double baseWidth, double baseHeight, String imageFileName) {
         super(baseX, baseY, baseWidth, baseHeight);
         this.imageFileName = imageFileName;
-        this.rotation = 45.0;
+        this.rotation = 0.0;
         this.resize();
     }
 

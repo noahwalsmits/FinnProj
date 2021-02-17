@@ -13,13 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlappyGame {
-    public static final double MS_PER_UPDATE = 200.0;
-
     private final Pane root;
     private final GraphicsContext graphics;
 
     private List<Drawable> drawables;
-    private Drawable bird;
+    private FlappyCharacter character;
 
     public FlappyGame() {
         this.root = new Pane();
@@ -30,8 +28,8 @@ public class FlappyGame {
         this.root.heightProperty().addListener(evt -> resized());
 
         this.drawables = new ArrayList<>();
-        this.bird = new DrawableImage(50, 50, 300, 100, "jermasus.png");
-        this.drawables.add(this.bird);
+        this.character = new FlappyCharacter();
+        this.drawables.add(this.character.getDrawable());
         resized();
 
         new AnimationTimer() {
@@ -47,6 +45,8 @@ public class FlappyGame {
                 draw();
             }
         }.start();
+
+        this.root.setOnMouseClicked(mouseEvent -> this.character.jump());
     }
 
     public Parent getRoot() {
@@ -65,7 +65,7 @@ public class FlappyGame {
     }
 
     private void update(double elapsedTime) {
-        this.bird.setBaseX(this.bird.getBaseX() + (100.0 * elapsedTime));
+        this.character.update(elapsedTime);
     }
 
     private void draw() {
