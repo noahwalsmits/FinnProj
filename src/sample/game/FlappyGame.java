@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
-import sample.game.drawable.DrawableImage;
 import sample.game.drawable.Drawable;
 import sample.game.drawable.ScreenConfig;
 
@@ -32,7 +31,7 @@ public class FlappyGame {
         //setup drawables
         this.drawables = new ArrayList<>();
 
-        this.scrollingBackground = new ScrollingBackground("");
+        this.scrollingBackground = new ScrollingBackground("wall.jpg");
         for (Drawable drawable : this.scrollingBackground.getDrawables()) {
             this.drawables.add(drawable);
         }

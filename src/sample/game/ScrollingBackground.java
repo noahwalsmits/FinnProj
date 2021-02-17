@@ -5,6 +5,9 @@ import sample.game.drawable.Drawable;
 import sample.game.drawable.DrawableImage;
 import sample.game.drawable.ScreenConfig;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ScrollingBackground {
     private DrawableImage[] backgroundDrawables;
 
@@ -12,13 +15,19 @@ public class ScrollingBackground {
 
     public ScrollingBackground(String... backgroundResources) {
         //TODO use strings instead of hardcoding drawables
-        DrawableImage drawable1 = new DrawableImage(0.0, 0.0,
-                ScreenConfig.BASE_SCREEN_WIDTH, ScreenConfig.BASE_SCREEN_HEIGHT,
-                "jermasus.png");
-        DrawableImage drawable2 = new DrawableImage(ScreenConfig.BASE_SCREEN_WIDTH, 0.0,
-                ScreenConfig.BASE_SCREEN_WIDTH, ScreenConfig.BASE_SCREEN_HEIGHT,
-                "jermasus.png");
-        this.backgroundDrawables = new DrawableImage[]{drawable1, drawable2};
+        List<DrawableImage> drawables = new ArrayList<>();
+        for (int i = 0; i < backgroundResources.length; i++) {
+            drawables.add(new DrawableImage(ScreenConfig.BASE_SCREEN_WIDTH * i, 0.0,
+                    ScreenConfig.BASE_SCREEN_WIDTH, ScreenConfig.BASE_SCREEN_HEIGHT,
+                    backgroundResources[i]));
+        }
+        if (drawables.size() < 2) {
+            drawables.add(new DrawableImage(ScreenConfig.BASE_SCREEN_WIDTH * drawables.size(), 0.0,
+                    ScreenConfig.BASE_SCREEN_WIDTH, ScreenConfig.BASE_SCREEN_HEIGHT,
+                    backgroundResources[drawables.size() - 1]));
+        }
+        this.backgroundDrawables = new DrawableImage[drawables.size()];
+        this.backgroundDrawables = drawables.toArray(this.backgroundDrawables);
     }
 
     public void update(double elapsedTime) {
