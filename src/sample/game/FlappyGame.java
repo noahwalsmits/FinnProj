@@ -18,6 +18,7 @@ public class FlappyGame {
 
     private List<Drawable> drawables;
     private FlappyCharacter character;
+    private ScrollingBackground scrollingBackground;
 
     public FlappyGame() {
         this.root = new Pane();
@@ -27,9 +28,11 @@ public class FlappyGame {
         this.root.widthProperty().addListener(evt -> resized());
         this.root.heightProperty().addListener(evt -> resized());
 
-        this.drawables = new ArrayList<>();
         this.character = new FlappyCharacter();
+        this.root.setOnMouseClicked(mouseEvent -> this.character.jump());
+        this.drawables = new ArrayList<>();
         this.drawables.add(this.character.getDrawable());
+        this.scrollingBackground = new ScrollingBackground("");
         resized();
 
         new AnimationTimer() {
@@ -45,8 +48,6 @@ public class FlappyGame {
                 draw();
             }
         }.start();
-
-        this.root.setOnMouseClicked(mouseEvent -> this.character.jump());
     }
 
     public Parent getRoot() {
@@ -66,10 +67,12 @@ public class FlappyGame {
 
     private void update(double elapsedTime) {
         this.character.update(elapsedTime);
+        this.scrollingBackground.update(elapsedTime);
     }
 
     private void draw() {
         this.graphics.clearRect(0, 0, this.root.getWidth(), this.root.getHeight());
+        this.scrollingBackground.draw(this.graphics);
         for (Drawable drawable : this.drawables) {
             drawable.draw(this.graphics);
         }

@@ -12,13 +12,13 @@ public class ScrollingBackground {
 
     public ScrollingBackground(String... backgroundResources) {
         //TODO use strings instead of hardcoding drawables
-        DrawableImage drawable1 = new DrawableImage(0.0, 0.0,
-                ScreenConfig.BASE_SCREEN_WIDTH, ScreenConfig.BASE_SCREEN_HEIGHT,
-                "background1");
+        DrawableImage drawable1 = new DrawableImage(0, 0,
+                1000.0, 1000.0,
+                "penguin.png");
         DrawableImage drawable2 = new DrawableImage(ScreenConfig.BASE_SCREEN_WIDTH, 0.0,
                 ScreenConfig.BASE_SCREEN_WIDTH, ScreenConfig.BASE_SCREEN_HEIGHT,
-                "background1");
-        this.backgroundDrawables = new DrawableImage[]{drawable1, drawable2};
+                "background1.jpg");
+        this.backgroundDrawables = new DrawableImage[]{drawable1};
     }
 
     public void draw(GraphicsContext graphics) {
@@ -29,7 +29,11 @@ public class ScrollingBackground {
 
     public void update(double elapsedTime) {
         for (Drawable drawable : this.backgroundDrawables) {
-            drawable.setBaseX(drawable.getBaseX() + SCROLLING_SPEED);
+            drawable.setBaseX(drawable.getBaseX() + SCROLLING_SPEED * elapsedTime);
         }
+    }
+
+    public Drawable[] getDrawables() {
+        return this.backgroundDrawables;
     }
 }
