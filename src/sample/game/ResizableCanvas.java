@@ -27,11 +27,11 @@ public class ResizableCanvas extends Canvas {
 
     @Override
     public double prefWidth(double v) {
-        return Double.MAX_VALUE;
+        return getWidth();
     }
 
     @Override
     public double prefHeight(double v) {
-        return Double.MAX_VALUE;
+        return getHeight();
     }
 }

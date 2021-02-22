@@ -20,6 +20,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.baseBox = new HBox();
+        this.baseBox.setMinWidth(Region.USE_PREF_SIZE);
+        this.baseBox.setMaxWidth(Region.USE_PREF_SIZE);
         this.baseBox.getChildren().add(this.createSideBar());
         this.baseBox.getChildren().add(new ImageView("images/wall.jpg"));
 
@@ -43,6 +45,7 @@ public class Main extends Application {
     private void setContent(Node content) {
         this.baseBox.getChildren().remove(1);
         this.baseBox.getChildren().add(content);
+        this.baseBox.setHgrow(content, Priority.ALWAYS);
     }
 
     private VBox createSideBar() {

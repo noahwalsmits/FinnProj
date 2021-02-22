@@ -4,7 +4,11 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import sample.game.drawable.Drawable;
 import sample.game.drawable.ScreenConfig;
 
@@ -27,6 +31,9 @@ public class FlappyGame {
         this.graphics = canvas.getGraphicsContext2D();
         this.root.widthProperty().addListener(evt -> resized());
         this.root.heightProperty().addListener(evt -> resized());
+        this.root.setMinWidth(10.0);
+        this.root.setMinHeight(10.0);
+        this.root.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));//
 
         //setup drawables
         this.drawables = new ArrayList<>();
