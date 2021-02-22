@@ -1,9 +1,7 @@
-package sample;
+package sample.game;
 
-import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Control;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -19,15 +17,7 @@ public class ResizableCanvas extends Canvas {
     }
 
     private void draw() {
-        double width = getWidth();
-        double height = getHeight();
 
-        GraphicsContext gc = getGraphicsContext2D();
-        gc.clearRect(0, 0, width, height);
-
-        gc.setStroke(Color.RED);
-        gc.strokeLine(0, 0, width, height);
-        gc.strokeLine(0, height, width, 0);
     }
 
     @Override
