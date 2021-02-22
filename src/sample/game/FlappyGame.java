@@ -7,7 +7,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import sample.game.drawable.Drawable;
 import sample.game.drawable.ScreenConfig;
@@ -18,6 +17,7 @@ import java.util.List;
 public class FlappyGame {
     private final Pane root;
     private final GraphicsContext graphics;
+    private final AnimationTimer animationTimer;
 
     private List<Drawable> drawables;
     private FlappyCharacter character;
@@ -50,7 +50,7 @@ public class FlappyGame {
         resized();
 
         //setup animation timer
-        new AnimationTimer() {
+        this.animationTimer = new AnimationTimer() {
             long last = -1;
 
             @Override
@@ -62,11 +62,16 @@ public class FlappyGame {
                 last = now;
                 draw();
             }
-        }.start();
+        };
+        this.animationTimer.start();
     }
 
     public Parent getRoot() {
         return this.root;
+    }
+
+    public void exit() {
+        this.animationTimer.stop();
     }
 
     private void resized() {

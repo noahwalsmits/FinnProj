@@ -16,6 +16,7 @@ import sample.game.FlappyGame;
 
 public class Main extends Application {
     private HBox baseBox;
+    private FlappyGame game;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -48,12 +49,24 @@ public class Main extends Application {
         this.baseBox.setHgrow(content, Priority.ALWAYS);
     }
 
+    /**
+     * Exits the current game instance, if there is one.
+     */
+    private void exitGame() {
+        if (this.game != null) {
+            this.game.exit();
+            this.game = null;
+        }
+    }
+
     private VBox createSideBar() {
         VBox vBox = new VBox();
         { //game button
             Button button = new Button("Game");
             button.setOnAction(actionEvent -> {
-                this.setContent(new FlappyGame().getRoot());
+                exitGame();
+                this.game = new FlappyGame();
+                this.setContent(this.game.getRoot());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             vBox.getChildren().add(button);
@@ -61,6 +74,7 @@ public class Main extends Application {
         { //loot button
             Button button = new Button("Loot");
             button.setOnAction(actionEvent -> {
+                exitGame();
                 this.setContent(new ImageView("images/wall.jpg"));//
             });
             button.setMaxWidth(Double.MAX_VALUE);
@@ -69,6 +83,7 @@ public class Main extends Application {
         { //inventory button
             Button button = new Button("Inventory");
             button.setOnAction(actionEvent -> {
+                exitGame();
                 this.setContent(new Pane());//
             });
             button.setMaxWidth(Double.MAX_VALUE);
@@ -77,6 +92,7 @@ public class Main extends Application {
         { //social button
             Button button = new Button("Social");
             button.setOnAction(actionEvent -> {
+                exitGame();
                 this.setContent(new Pane());//
             });
             button.setMaxWidth(Double.MAX_VALUE);
