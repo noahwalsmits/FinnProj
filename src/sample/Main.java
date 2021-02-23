@@ -14,6 +14,9 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.game.FlappyGame;
+import sample.inventory.InventoryScreen;
+import sample.shop.ShopScreen;
+import sample.social.SocialScreen;
 
 public class Main extends Application {
     private HBox baseBox;
@@ -81,7 +84,7 @@ public class Main extends Application {
             Button button = new Button("Shop");
             button.setOnAction(actionEvent -> {
                 exitGame();
-                this.setContent(this.getShopScreen());
+                this.setContent(new ShopScreen().getRoot());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -94,7 +97,7 @@ public class Main extends Application {
             Button button = new Button("Inventory");
             button.setOnAction(actionEvent -> {
                 exitGame();
-                this.setContent(this.getInventoryScreen());
+                this.setContent(new InventoryScreen().getRoot());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -107,7 +110,7 @@ public class Main extends Application {
             Button button = new Button("Social");
             button.setOnAction(actionEvent -> {
                 exitGame();
-                this.setContent(this.getTradeScreen());
+                this.setContent(new SocialScreen().getRoot());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -120,26 +123,5 @@ public class Main extends Application {
         vBox.setAlignment(Pos.CENTER);
         vBox.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
         return vBox;
-    }
-
-    //screens TODO move to own classes
-    private Parent getShopScreen() {
-        Pane thirdScreen = new FlowPane();
-
-        thirdScreen.getChildren().add(new Button("Buy normal box"));
-        thirdScreen.getChildren().add(new Button("Buy rare box"));
-        return thirdScreen;
-    }
-
-    private Parent getInventoryScreen() {
-        Pane fifthScreen = new FlowPane();
-        fifthScreen.getChildren().add(new Button("View Item"));
-        return fifthScreen;
-    }
-
-    private Parent getTradeScreen() {
-        Pane fourthScreen = new FlowPane();
-        fourthScreen.getChildren().add(new Button("Trade"));
-        return fourthScreen;
     }
 }
