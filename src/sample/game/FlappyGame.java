@@ -8,13 +8,14 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import sample.ContentScreen;
 import sample.game.drawable.Drawable;
 import sample.game.drawable.ScreenConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlappyGame {
+public class FlappyGame implements ContentScreen {
     private final Pane root;
     private final GraphicsContext graphics;
     private final AnimationTimer animationTimer;
@@ -66,10 +67,12 @@ public class FlappyGame {
         this.animationTimer.start();
     }
 
+    @Override
     public Parent getRoot() {
         return this.root;
     }
 
+    @Override
     public void exit() {
         this.animationTimer.stop();
     }

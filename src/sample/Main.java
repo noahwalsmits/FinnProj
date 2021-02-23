@@ -20,7 +20,7 @@ import sample.social.SocialScreen;
 
 public class Main extends Application {
     private HBox baseBox;
-    private FlappyGame game;
+    private ContentScreen currentScreen;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -47,20 +47,14 @@ public class Main extends Application {
      *
      * @param content The content that should be displayed.
      */
-    private void setContent(Node content) {
-        this.baseBox.getChildren().remove(1);
-        this.baseBox.getChildren().add(content);
-        this.baseBox.setHgrow(content, Priority.ALWAYS);
-    }
-
-    /**
-     * Exits the current game instance, if there is one.
-     */
-    private void exitGame() {
-        if (this.game != null) {
-            this.game.exit();
-            this.game = null;
+    private void setContent(ContentScreen content) {
+        if (this.currentScreen != null) {
+            this.currentScreen.exit();
+            this.currentScreen = content;
         }
+        this.baseBox.getChildren().remove(1);
+        this.baseBox.getChildren().add(content.getRoot());
+        this.baseBox.setHgrow(content.getRoot(), Priority.ALWAYS);
     }
 
     private VBox getSideBar() {
@@ -69,9 +63,7 @@ public class Main extends Application {
         { //game button
             Button button = new Button("Game");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.game = new FlappyGame();
-                this.setContent(this.game.getRoot());
+                this.setContent(new FlappyGame());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -83,8 +75,7 @@ public class Main extends Application {
         { //loot button
             Button button = new Button("Shop");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.setContent(new ShopScreen().getRoot());
+                this.setContent(new ShopScreen());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -96,8 +87,7 @@ public class Main extends Application {
         { //inventory button
             Button button = new Button("Inventory");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.setContent(new InventoryScreen().getRoot());
+                this.setContent(new InventoryScreen());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -109,8 +99,7 @@ public class Main extends Application {
         { //social button
             Button button = new Button("Social");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.setContent(new SocialScreen().getRoot());
+                this.setContent(new SocialScreen());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
