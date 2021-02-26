@@ -23,6 +23,7 @@ public class FlappyGame implements ContentScreen {
     private List<Drawable> drawables;
     private FlappyCharacter character;
     private ScrollingBackground scrollingBackground;
+    private Obstacle obstacle; //TODO obstacle array
 
     public FlappyGame() {
         //setup root and resizing
@@ -41,6 +42,11 @@ public class FlappyGame implements ContentScreen {
 
         this.scrollingBackground = new ScrollingBackground("wall.jpg");
         for (Drawable drawable : this.scrollingBackground.getDrawables()) {
+            this.drawables.add(drawable);
+        }
+
+        this.obstacle = new Obstacle(500.0);
+        for (Drawable drawable : this.obstacle.getDrawables()) {
             this.drawables.add(drawable);
         }
 
@@ -90,6 +96,7 @@ public class FlappyGame implements ContentScreen {
 
     private void update(double elapsedTime) {
         this.character.update(elapsedTime);
+        this.obstacle.update(elapsedTime, this.character);
         this.scrollingBackground.update(elapsedTime);
     }
 
