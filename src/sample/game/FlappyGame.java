@@ -48,7 +48,7 @@ public class FlappyGame implements ContentScreen {
         //setup drawables
         this.drawables = new ArrayList<>();
 
-        this.scrollingBackground = new ScrollingBackground("wall.jpg");
+        this.scrollingBackground = new ScrollingBackground("background.png");
         this.drawables.addAll(Arrays.asList(this.scrollingBackground.getDrawables()));
 
         this.obstacles = new Obstacle[]{
