@@ -6,10 +6,10 @@ import sample.game.drawable.ScreenConfig;
 
 public class FlappyCharacter {
     private DrawableImage drawable;
-    private final AudioClip jumpSound;
-    private final AudioClip bumpSound;
-    private final AudioClip scoreSound;
-    private final AudioClip gameOverSound;
+    private AudioClip jumpSound;
+    private AudioClip bumpSound;
+    private AudioClip scoreSound;
+    private AudioClip gameOverSound;
     private double height; //height based on base screen height
     private double yVelocity; //the height is changed by the velocity every second
     private boolean gameOver;
@@ -31,6 +31,17 @@ public class FlappyCharacter {
         this.yVelocity = 0.0;
         this.gameOver = false;
         this.game = game;
+    }
+
+    public FlappyCharacter(FlappyGame game, String cosmetic) {
+        this(game);
+        if (cosmetic.equals("jerma")) {
+            this.drawable = new DrawableImage(SPRITE_X, 50, SPRITE_SIZE, SPRITE_SIZE, "jermafunny.png");
+            this.jumpSound = new AudioClip(getClass().getResource("/sounds/aa.mp3").toString());
+            this.bumpSound = new AudioClip(getClass().getResource("/sounds/oo.mp3").toString());
+            this.scoreSound = new AudioClip(getClass().getResource("/sounds/ee.mp3").toString());
+            this.gameOverSound = new AudioClip(getClass().getResource("/sounds/aHHHHhwaheha.mp3").toString());
+        }
     }
 
     public void update(double elapsedTime) {

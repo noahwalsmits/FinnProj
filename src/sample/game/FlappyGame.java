@@ -58,7 +58,7 @@ public class FlappyGame implements ContentScreen {
             Collections.addAll(this.drawables, obstacle.getDrawables());
         }
 
-        this.character = new FlappyCharacter(this);
+        this.character = new FlappyCharacter(this, "jerma");
         this.root.setOnMouseClicked(mouseEvent -> this.start());
         this.drawables.add(this.character.getDrawable());
 
