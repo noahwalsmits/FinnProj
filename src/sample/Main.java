@@ -14,10 +14,13 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.game.FlappyGame;
+import sample.inventory.InventoryScreen;
+import sample.shop.ShopScreen;
+import sample.social.SocialScreen;
 
 public class Main extends Application {
     private HBox baseBox;
-    private FlappyGame game;
+    private ContentScreen currentScreen;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -44,20 +47,14 @@ public class Main extends Application {
      *
      * @param content The content that should be displayed.
      */
-    private void setContent(Node content) {
-        this.baseBox.getChildren().remove(1);
-        this.baseBox.getChildren().add(content);
-        this.baseBox.setHgrow(content, Priority.ALWAYS);
-    }
-
-    /**
-     * Exits the current game instance, if there is one.
-     */
-    private void exitGame() {
-        if (this.game != null) {
-            this.game.exit();
-            this.game = null;
+    private void setContent(ContentScreen content) {
+        if (this.currentScreen != null) {
+            this.currentScreen.exit();
+            this.currentScreen = content;
         }
+        this.baseBox.getChildren().remove(1);
+        this.baseBox.getChildren().add(content.getRoot());
+        this.baseBox.setHgrow(content.getRoot(), Priority.ALWAYS);
     }
 
     private VBox getSideBar() {
@@ -66,9 +63,7 @@ public class Main extends Application {
         { //game button
             Button button = new Button("Game");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.game = new FlappyGame();
-                this.setContent(this.game.getRoot());
+                this.setContent(new FlappyGame());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -80,8 +75,7 @@ public class Main extends Application {
         { //loot button
             Button button = new Button("Shop");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.setContent(this.getShopScreen());
+                this.setContent(new ShopScreen());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -93,8 +87,7 @@ public class Main extends Application {
         { //inventory button
             Button button = new Button("Inventory");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.setContent(this.getInventoryScreen());
+                this.setContent(new InventoryScreen());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -106,8 +99,7 @@ public class Main extends Application {
         { //social button
             Button button = new Button("Social");
             button.setOnAction(actionEvent -> {
-                exitGame();
-                this.setContent(this.getTradeScreen());
+                this.setContent(new SocialScreen());
             });
             button.setMaxWidth(Double.MAX_VALUE);
             button.widthProperty().addListener(observable -> {
@@ -120,26 +112,5 @@ public class Main extends Application {
         vBox.setAlignment(Pos.CENTER);
         vBox.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
         return vBox;
-    }
-
-    //screens TODO move to own classes
-    private Parent getShopScreen() {
-        Pane thirdScreen = new FlowPane();
-
-        thirdScreen.getChildren().add(new Button("Buy normal box"));
-        thirdScreen.getChildren().add(new Button("Buy rare box"));
-        return thirdScreen;
-    }
-
-    private Parent getInventoryScreen() {
-        Pane fifthScreen = new FlowPane();
-        fifthScreen.getChildren().add(new Button("View Item"));
-        return fifthScreen;
-    }
-
-    private Parent getTradeScreen() {
-        Pane fourthScreen = new FlowPane();
-        fourthScreen.getChildren().add(new Button("Trade"));
-        return fourthScreen;
     }
 }

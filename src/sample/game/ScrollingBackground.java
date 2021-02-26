@@ -14,7 +14,6 @@ public class ScrollingBackground {
     private static double SCROLLING_SPEED = 150.0;
 
     public ScrollingBackground(String... backgroundResources) {
-        //TODO use strings instead of hardcoding drawables
         List<DrawableImage> drawables = new ArrayList<>();
         for (int i = 0; i < backgroundResources.length; i++) {
             drawables.add(new DrawableImage(ScreenConfig.BASE_SCREEN_WIDTH * i, 0.0,
