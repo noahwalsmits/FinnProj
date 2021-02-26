@@ -49,7 +49,7 @@ public class Obstacle {
                 this.pointGiven = true; //prevent the game from giving a point
                 character.gameOver();
             } else if (!pointGiven && this.xPosition <= FlappyCharacter.SPRITE_X) {
-                character.gotPoint();
+                character.scoredPoint();
                 pointGiven = true;
             }
         }

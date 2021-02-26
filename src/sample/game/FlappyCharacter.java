@@ -12,6 +12,8 @@ public class FlappyCharacter {
     private final AudioClip gameOverSound;
     private double height; //height based on base screen height
     private double yVelocity; //the height is changed by the velocity every second
+    private boolean gameOver;
+    private final FlappyGame game;
 
     public static final double SPRITE_SIZE = 150.0;
     public static final double SPRITE_X = 50.0;
@@ -19,7 +21,7 @@ public class FlappyCharacter {
     private static final double JUMP_BASE_VELOCITY = 100.0;
     private static final double JUMP_ADDED_VELOCITY = 150.0;
 
-    public FlappyCharacter() {
+    public FlappyCharacter(FlappyGame game) {
         this.drawable = new DrawableImage(SPRITE_X, 50, SPRITE_SIZE, SPRITE_SIZE, "penguin.png");
         this.jumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiJump1.wav").toString());
         this.bumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiBump.wav").toString());
@@ -27,6 +29,8 @@ public class FlappyCharacter {
         this.gameOverSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiDeath.wav").toString());
         this.height = 900.0;
         this.yVelocity = 0.0;
+        this.gameOver = false;
+        this.game = game;
     }
 
     public void update(double elapsedTime) {
@@ -58,13 +62,16 @@ public class FlappyCharacter {
     }
 
     public void gameOver() {
-        //todo
-        this.gameOverSound.play();
+        if (!this.gameOver) {
+            this.gameOver = true;
+            this.gameOverSound.play();
+            this.game.gameOver();
+        }
     }
 
-    public void gotPoint() {
-        //todo
+    public void scoredPoint() {
         this.scoreSound.play();
+        this.game.scoredPoint();
     }
 
     public DrawableImage getDrawable() {

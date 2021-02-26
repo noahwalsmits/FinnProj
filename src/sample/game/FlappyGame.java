@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
@@ -24,6 +25,7 @@ public class FlappyGame implements ContentScreen {
     private FlappyCharacter character;
     private ScrollingBackground scrollingBackground;
     private Obstacle obstacle; //TODO obstacle array
+    private int pointsGained;
 
     public FlappyGame() {
         //setup root and resizing
@@ -50,7 +52,7 @@ public class FlappyGame implements ContentScreen {
             this.drawables.add(drawable);
         }
 
-        this.character = new FlappyCharacter();
+        this.character = new FlappyCharacter(this);
         this.root.setOnMouseClicked(mouseEvent -> this.character.jump());
         this.drawables.add(this.character.getDrawable());
 
@@ -71,6 +73,7 @@ public class FlappyGame implements ContentScreen {
             }
         };
         this.animationTimer.start();
+        this.pointsGained = 0;
     }
 
     @Override
@@ -81,6 +84,7 @@ public class FlappyGame implements ContentScreen {
     @Override
     public void exit() {
         this.animationTimer.stop();
+        this.root.setOnMouseClicked(null);
     }
 
     private void resized() {
@@ -105,5 +109,16 @@ public class FlappyGame implements ContentScreen {
         for (Drawable drawable : this.drawables) {
             drawable.draw(this.graphics);
         }
+    }
+
+    public void gameOver() {
+        this.exit();
+        this.drawables.clear();
+        this.root.getChildren().clear();
+        this.root.getChildren().add(new Label("GAME OVER you scored " + this.pointsGained + " points!"));
+    }
+
+    public void scoredPoint() {
+        this.pointsGained++;
     }
 }
