@@ -25,7 +25,7 @@ public class FlappyCharacter {
         this.bumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiBump.wav").toString());
         this.scoreSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiCoin.wav").toString());
         this.gameOverSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiDeath.wav").toString());
-        this.height = 800.0;
+        this.height = 900.0;
         this.yVelocity = 0.0;
     }
 

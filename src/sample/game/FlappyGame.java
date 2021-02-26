@@ -45,7 +45,7 @@ public class FlappyGame implements ContentScreen {
             this.drawables.add(drawable);
         }
 
-        this.obstacle = new Obstacle(500.0);
+        this.obstacle = new Obstacle(1800.0);
         for (Drawable drawable : this.obstacle.getDrawables()) {
             this.drawables.add(drawable);
         }

@@ -48,7 +48,7 @@ public class Obstacle {
                     || character.getHeight() >= this.gapHeight + this.gapSize) { //if touching bottom OR if touching top
                 this.pointGiven = true; //prevent the game from giving a point
                 character.gameOver();
-            } else if (!pointGiven && this.xPosition <= FlappyCharacter.SPRITE_X + FlappyCharacter.SPRITE_SIZE) {
+            } else if (!pointGiven && this.xPosition <= FlappyCharacter.SPRITE_X) {
                 character.gotPoint();
                 pointGiven = true;
             }
@@ -61,7 +61,7 @@ public class Obstacle {
 
     private double getRandomGapSize() {
         double max = FlappyCharacter.SPRITE_SIZE * 2.6;
-        double min = FlappyCharacter.SPRITE_SIZE * 1.4;
+        double min = FlappyCharacter.SPRITE_SIZE * 1.6;
         return (Math.random() * (max - min)) + min;
     }
 
