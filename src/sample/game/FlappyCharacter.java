@@ -57,6 +57,10 @@ public class FlappyCharacter {
         //todo
     }
 
+    public void gotPoint() {
+        //todo
+    }
+
     public DrawableImage getDrawable() {
         return drawable;
     }

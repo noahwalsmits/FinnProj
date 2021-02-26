@@ -10,6 +10,7 @@ public class Obstacle {
     private double gapHeight;
     private DrawableImage topSprite;
     private DrawableImage bottomSprite;
+    private boolean pointGiven;
 
     private static double SCROLLING_SPEED = 450.0;
     private static double SPRITE_HEIGHT = 1080.0;
@@ -21,6 +22,7 @@ public class Obstacle {
         this.gapHeight = this.getRandomGapHeight();
         this.topSprite = new DrawableImage(this.xPosition, ScreenConfig.BASE_SCREEN_HEIGHT - this.gapHeight - this.gapSize - SPRITE_HEIGHT, SPRITE_WIDTH, SPRITE_HEIGHT, "wall.jpg");
         this.bottomSprite = new DrawableImage(this.xPosition, ScreenConfig.BASE_SCREEN_HEIGHT - this.gapHeight, SPRITE_WIDTH, SPRITE_HEIGHT, "wall.jpg");
+        this.pointGiven = false;
     }
 
     public void update(double elapsedTime, FlappyCharacter character) {
@@ -36,6 +38,7 @@ public class Obstacle {
             this.gapHeight = this.getRandomGapHeight(); //generate new gap height
             this.topSprite.setBaseY(ScreenConfig.BASE_SCREEN_HEIGHT - this.gapHeight - this.gapSize - SPRITE_HEIGHT);
             this.bottomSprite.setBaseY(ScreenConfig.BASE_SCREEN_HEIGHT - this.gapHeight);
+            this.pointGiven = false;
         }
 
         //check if character is hit
@@ -43,7 +46,11 @@ public class Obstacle {
         && this.xPosition + SPRITE_WIDTH >= FlappyCharacter.SPRITE_X) { //when character and obstacle overlap in width
             if (character.getHeight() - FlappyCharacter.SPRITE_SIZE <= this.gapHeight
                     || character.getHeight() >= this.gapHeight + this.gapSize) { //if touching bottom OR if touching top
+                this.pointGiven = true; //prevent the game from giving a point
                 character.gameOver();
+            } else if (!pointGiven && this.xPosition <= FlappyCharacter.SPRITE_X + FlappyCharacter.SPRITE_SIZE) {
+                character.gotPoint();
+                pointGiven = true;
             }
         }
     }
