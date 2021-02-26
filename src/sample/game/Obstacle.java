@@ -39,6 +39,13 @@ public class Obstacle {
         }
 
         //check if character is hit
+        if (this.xPosition <= FlappyCharacter.SPRITE_X + FlappyCharacter.SPRITE_SIZE
+        && this.xPosition + SPRITE_WIDTH >= FlappyCharacter.SPRITE_X) { //when character and obstacle overlap in width
+            if (character.getHeight() - FlappyCharacter.SPRITE_SIZE <= this.gapHeight
+                    || character.getHeight() >= this.gapHeight + this.gapSize) { //if touching bottom OR if touching top
+                character.gameOver();
+            }
+        }
     }
 
     public Drawable[] getDrawables() {
