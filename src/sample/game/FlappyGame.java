@@ -14,6 +14,8 @@ import sample.game.drawable.Drawable;
 import sample.game.drawable.ScreenConfig;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class FlappyGame implements ContentScreen {
@@ -24,7 +26,7 @@ public class FlappyGame implements ContentScreen {
     private List<Drawable> drawables;
     private FlappyCharacter character;
     private ScrollingBackground scrollingBackground;
-    private Obstacle obstacle; //TODO obstacle array
+    private Obstacle[] obstacles;
     private int pointsGained;
 
     public FlappyGame() {
@@ -37,23 +39,23 @@ public class FlappyGame implements ContentScreen {
         this.root.heightProperty().addListener(evt -> resized());
         this.root.setMinWidth(10.0);
         this.root.setMinHeight(10.0);
-        this.root.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));//
+        this.root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));//
 
         //setup drawables
         this.drawables = new ArrayList<>();
 
         this.scrollingBackground = new ScrollingBackground("wall.jpg");
-        for (Drawable drawable : this.scrollingBackground.getDrawables()) {
-            this.drawables.add(drawable);
-        }
+        this.drawables.addAll(Arrays.asList(this.scrollingBackground.getDrawables()));
 
-        this.obstacle = new Obstacle(1800.0);
-        for (Drawable drawable : this.obstacle.getDrawables()) {
-            this.drawables.add(drawable);
+        this.obstacles = new Obstacle[]{
+                new Obstacle(ScreenConfig.BASE_SCREEN_WIDTH),
+                new Obstacle(ScreenConfig.BASE_SCREEN_WIDTH * 1.5)};
+        for (Obstacle obstacle : this.obstacles) {
+            Collections.addAll(this.drawables, obstacle.getDrawables());
         }
 
         this.character = new FlappyCharacter(this);
-        this.root.setOnMouseClicked(mouseEvent -> this.character.jump());
+        this.root.setOnMouseClicked(mouseEvent -> this.start());
         this.drawables.add(this.character.getDrawable());
 
         resized();
@@ -72,7 +74,6 @@ public class FlappyGame implements ContentScreen {
                 draw();
             }
         };
-        this.animationTimer.start();
         this.pointsGained = 0;
     }
 
@@ -85,6 +86,11 @@ public class FlappyGame implements ContentScreen {
     public void exit() {
         this.animationTimer.stop();
         this.root.setOnMouseClicked(null);
+    }
+
+    public void start() {
+        this.animationTimer.start();
+        this.root.setOnMouseClicked(mouseEvent -> this.character.jump());
     }
 
     private void resized() {
@@ -100,7 +106,9 @@ public class FlappyGame implements ContentScreen {
 
     private void update(double elapsedTime) {
         this.character.update(elapsedTime);
-        this.obstacle.update(elapsedTime, this.character);
+        for (Obstacle obstacle : this.obstacles) {
+            obstacle.update(elapsedTime, this.character);
+        }
         this.scrollingBackground.update(elapsedTime);
     }
 
@@ -115,7 +123,9 @@ public class FlappyGame implements ContentScreen {
         this.exit();
         this.drawables.clear();
         this.root.getChildren().clear();
-        this.root.getChildren().add(new Label("GAME OVER you scored " + this.pointsGained + " points!"));
+        Label label = new Label("GAME OVER you scored " + this.pointsGained + " points!");
+        label.setTextFill(Color.WHITE);
+        this.root.getChildren().add(label);
     }
 
     public void scoredPoint() {
