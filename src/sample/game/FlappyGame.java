@@ -1,6 +1,7 @@
 package sample.game;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -8,7 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import sample.ContentScreen;
 import sample.game.drawable.Drawable;
 import sample.game.drawable.ScreenConfig;
@@ -31,7 +35,7 @@ public class FlappyGame implements ContentScreen {
 
     public FlappyGame() {
         //setup root and resizing
-        this.root = new Pane();
+        this.root = new StackPane();
         Canvas canvas = new ResizableCanvas(root);
         this.root.getChildren().add(canvas);
         this.graphics = canvas.getGraphicsContext2D();
@@ -123,8 +127,10 @@ public class FlappyGame implements ContentScreen {
         this.exit();
         this.drawables.clear();
         this.root.getChildren().clear();
-        Label label = new Label("GAME OVER you scored " + this.pointsGained + " points!");
+        Label label = new Label("GAME OVER! you've scored " + this.pointsGained + " point(s)!");
         label.setTextFill(Color.WHITE);
+        label.setFont(Font.font(null, FontWeight.BOLD, 50));
+        label.setAlignment(Pos.CENTER);
         this.root.getChildren().add(label);
     }
 
