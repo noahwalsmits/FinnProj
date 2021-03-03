@@ -1,14 +1,9 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -61,7 +56,7 @@ public class Main extends Application {
         VBox vBox = new VBox();
         { final Region spacer = new Region(); VBox.setVgrow(spacer, Priority.ALWAYS); vBox.getChildren().add(spacer); }
         { //game button
-            Button button = new Button("Game");
+            Button button = new Button();
             button.setOnAction(actionEvent -> {
                 this.setContent(new FlappyGame());
             });
@@ -69,11 +64,13 @@ public class Main extends Application {
             button.widthProperty().addListener(observable -> {
                 button.setPrefHeight(button.getWidth());
             });
+            ImageView view = new ImageView("images/interface/gameicon.png");
+            button.setGraphic(view);
             vBox.getChildren().add(button);
         }
         { final Region spacer = new Region(); VBox.setVgrow(spacer, Priority.ALWAYS); vBox.getChildren().add(spacer); }
         { //loot button
-            Button button = new Button("Shop");
+            Button button = new Button();
             button.setOnAction(actionEvent -> {
                 this.setContent(new ShopScreen());
             });
@@ -81,11 +78,13 @@ public class Main extends Application {
             button.widthProperty().addListener(observable -> {
                 button.setPrefHeight(button.getWidth());
             });
+            ImageView view = new ImageView("images/interface/shopicon.png");
+            button.setGraphic(view);
             vBox.getChildren().add(button);
         }
         { final Region spacer = new Region(); VBox.setVgrow(spacer, Priority.ALWAYS); vBox.getChildren().add(spacer); }
         { //inventory button
-            Button button = new Button("Inventory");
+            Button button = new Button();
             button.setOnAction(actionEvent -> {
                 this.setContent(new InventoryScreen());
             });
@@ -93,11 +92,13 @@ public class Main extends Application {
             button.widthProperty().addListener(observable -> {
                 button.setPrefHeight(button.getWidth());
             });
+            ImageView view = new ImageView("images/interface/inventoryicon.png");
+            button.setGraphic(view);
             vBox.getChildren().add(button);
         }
         { final Region spacer = new Region(); VBox.setVgrow(spacer, Priority.ALWAYS); vBox.getChildren().add(spacer); }
         { //social button
-            Button button = new Button("Social");
+            Button button = new Button();
             button.setOnAction(actionEvent -> {
                 this.setContent(new SocialScreen());
             });
@@ -105,6 +106,8 @@ public class Main extends Application {
             button.widthProperty().addListener(observable -> {
                 button.setPrefHeight(button.getWidth());
             });
+            ImageView view = new ImageView("images/interface/socialicon.png");
+            button.setGraphic(view);
             vBox.getChildren().add(button);
         }
         { final Region spacer = new Region(); VBox.setVgrow(spacer, Priority.ALWAYS); vBox.getChildren().add(spacer); }
