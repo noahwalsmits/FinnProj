@@ -35,6 +35,12 @@ public class Main extends Application {
 
         UserData userData = new UserData();
         System.out.println(userData.getPoints());
+        userData.changePoints(10);
+        System.out.println(userData.getPoints());
+        userData.changePoints(-30);
+        System.out.println(userData.getPoints());
+        userData.changePoints(-100);
+        System.out.println(userData.getPoints());
     }
 
     public static void main(String[] args) {

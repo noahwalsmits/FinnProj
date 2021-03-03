@@ -1,47 +1,55 @@
 package sample.inventory;
 
+import org.json.JSONObject;
 import sample.inventory.cosmetics.CosmeticItem;
 
 import java.io.*;
 import java.util.List;
 
 public class UserData {
+    private String filePath;
     private File file;
 
     public UserData() {
-        this.file = new File(getClass().getResource("/userdata.txt").getPath());
-        System.out.println(file.getAbsolutePath());
+        this.filePath = getClass().getResource("/userdata1.json").getPath();
+    }
+
+    private String readJson() {
+        StringBuilder contentBuilder = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(this.filePath))) {
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null)
+            {
+                contentBuilder.append(sCurrentLine).append("\n");
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return contentBuilder.toString();
     }
 
     public int getPoints() {
-        int points = -1;
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(this.file)));
-            String line = reader.readLine();
-            do {
-                if (line.contains("points")) {
-                    line = line.substring(line.indexOf(' ') + 1);
-                    System.out.println(line);
-                    return Integer.parseInt(line);
-                }
-                line = reader.readLine();
-            } while (line != null);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return points;
+        JSONObject object = new JSONObject(this.readJson());
+        return object.getInt("points");
     }
 
     private void setPoints(int points) {
+        JSONObject object = new JSONObject(this.readJson());
+        object.put("points", points);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
+            writer.write(object.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public boolean addPoints(int added) {
-        return false;
-    }
-
-    public boolean removePoints(int removed) {
-        return false;
+    public boolean changePoints(int change) {
+        if (-change > getPoints()) {
+            return false;
+        }
+        setPoints(getPoints() + change);
+        return true;
     }
 
     public List<CosmeticItem> getItems() {
