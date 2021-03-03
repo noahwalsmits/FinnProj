@@ -13,8 +13,6 @@ public class CosmeticType {
         this.quality = quality;
     }
 
-    //create item
-
     public String getName() {
         return name;
     }
@@ -28,7 +26,14 @@ public class CosmeticType {
     }
 
     public static CosmeticType[] getCosmeticTypes() {
-        return null;
+        return new CosmeticType[]{
+                new CosmeticType("Abstract", "images/cosmetics/abstract.png", CosmeticQuality.NORMAL),
+                new CosmeticType("Flies", "images/cosmetics/flies.png", CosmeticQuality.NORMAL),
+                new CosmeticType("Frog", "images/cosmetics/frog.png", CosmeticQuality.NORMAL),
+                new CosmeticType("Penguin", "images/cosmetics/penguin.png", CosmeticQuality.NORMAL),
+                new CosmeticType("Snake", "images/cosmetics/snake.png", CosmeticQuality.NORMAL),
+                new CosmeticType("Jerma", "images/cosmetics/jerma.png", CosmeticQuality.NORMAL)
+        };
     }
 
     @Override
