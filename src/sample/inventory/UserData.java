@@ -2,16 +2,17 @@ package sample.inventory;
 
 import org.json.JSONObject;
 import sample.inventory.cosmetics.CosmeticItem;
+import sample.inventory.cosmetics.CosmeticType;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserData {
     private String filePath;
-    private File file;
 
     public UserData() {
-        this.filePath = getClass().getResource("/userdata1.json").getPath();
+        this.filePath = "userdata/userdata.json";
     }
 
     private String readJson() {
@@ -53,10 +54,33 @@ public class UserData {
     }
 
     public List<CosmeticItem> getItems() {
-        return null;
+        JSONObject object = new JSONObject(this.readJson());
+        JSONObject items = object.getJSONObject("items");
+
+        List<CosmeticItem> itemList = new ArrayList<>();
+        CosmeticType[] cosmeticTypes = CosmeticType.getCosmeticTypes();
+        for (String key : items.keySet()) {
+            for (CosmeticType cosmeticType : cosmeticTypes) {
+                if (key.equals(cosmeticType.getId())) {
+                    itemList.add(new CosmeticItem(cosmeticType, items.getInt(key)));
+                }
+            }
+        }
+        return itemList;
     }
 
-    public boolean setItems(List<CosmeticItem> items) {
-        return false;
+    public void setItems(List<CosmeticItem> items) {
+        JSONObject object = new JSONObject(this.readJson());
+        JSONObject jsonItems = object.getJSONObject("items");
+
+        for (CosmeticItem cosmeticItem : items) {
+            jsonItems.put(cosmeticItem.getType().getId(), cosmeticItem.getQuantity());
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
+            writer.write(object.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
