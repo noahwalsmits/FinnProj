@@ -1,0 +1,3 @@
+points 50
+jerma 1
+frog 5

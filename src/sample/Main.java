@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.game.FlappyGame;
 import sample.inventory.InventoryScreen;
+import sample.inventory.UserData;
 import sample.shop.ShopScreen;
 import sample.social.SocialScreen;
 
@@ -31,6 +32,9 @@ public class Main extends Application {
         primaryStage.setWidth(300.0);
         primaryStage.setHeight(300.0);
         primaryStage.show();
+
+        UserData userData = new UserData();
+        System.out.println(userData.getPoints());
     }
 
     public static void main(String[] args) {
