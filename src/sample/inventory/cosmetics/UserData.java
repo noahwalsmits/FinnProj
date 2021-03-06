@@ -1,4 +1,4 @@
-package sample.inventory;
+package sample.inventory.cosmetics;
 
 import org.json.JSONObject;
 import sample.inventory.cosmetics.CosmeticItem;

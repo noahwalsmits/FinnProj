@@ -27,6 +27,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("Game");
         Scene scene = new Scene(this.baseBox);
+        scene.getStylesheets().add("styles/style.css");
         primaryStage.setScene(scene);
         primaryStage.setWidth(300.0);
         primaryStage.setHeight(300.0);
