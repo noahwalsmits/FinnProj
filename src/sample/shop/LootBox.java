@@ -6,6 +6,7 @@ import sample.inventory.cosmetics.CosmeticType;
 import sample.inventory.cosmetics.UserData;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class LootBox {
     private String name;
@@ -21,8 +22,31 @@ public class LootBox {
     }
 
     public CosmeticType open() {
-        //TODO implement
-        return null;
+        ArrayList<CosmeticType> list = new ArrayList<>();
+        for (CosmeticType cosmeticType : this.drops) {
+            switch (cosmeticType.getQuality()) {
+                case COMMON:
+                    list.add(cosmeticType);
+                    list.add(cosmeticType);
+                    list.add(cosmeticType);
+                    list.add(cosmeticType);
+                    break;
+                case UNCOMMON:
+                    list.add(cosmeticType);
+                    list.add(cosmeticType);
+                    list.add(cosmeticType);
+                    break;
+                case RARE:
+                    list.add(cosmeticType);
+                    list.add(cosmeticType);
+                    break;
+                case MYTHICAL:
+                    list.add(cosmeticType);
+                    break;
+            }
+        }
+        Random random = new Random();
+        return list.get(random.nextInt(list.size()));
     }
 
     public String getName() {
