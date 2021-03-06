@@ -1,0 +1,98 @@
+{
+  "cosmetics": [
+    {
+      "name": "Wingman cap",
+      "graphic": "images/cosmetics/gamingbox/wingman_hat.png",
+      "quality": 2,
+      "id": "wingman"
+    },
+    {
+      "name": "Bullet kin hat",
+      "graphic": "images/cosmetics/gamingbox/bullet_kin_hat.png",
+      "quality": 3,
+      "id": "bulletkin"
+    },
+    {
+      "name": "Cube hat",
+      "graphic": "images/cosmetics/gamingbox/cubehat.png",
+      "quality": 2,
+      "id": "cubehat"
+    },
+    {
+      "name": "Engineer goggles",
+      "graphic": "images/cosmetics/gamingbox/engi_goggles.png",
+      "quality": 1,
+      "id": "engigoggles"
+    },
+    {
+      "name": "Hallowed hat",
+      "graphic": "images/cosmetics/gamingbox/hallowed_hat.png",
+      "quality": 2,
+      "id": "hallowed"
+    },
+    {
+      "name": "Loser cap",
+      "graphic": "images/cosmetics/gamingbox/loser_cap.png",
+      "quality": 1,
+      "id": "loser"
+    },
+    {
+      "name": "Hat kid hat",
+      "graphic": "images/cosmetics/gamingbox/hat_kid_hat.png",
+      "quality": 1,
+      "id": "hatkid"
+    },
+    {
+      "name": "Hollow hat",
+      "graphic": "images/cosmetics/gamingbox/hollow_hat.png",
+      "quality": 3,
+      "id": "hollow"
+    },
+    {
+      "name": "Oneshot hat",
+      "graphic": "images/cosmetics/gamingbox/Oneshot_hat.png",
+      "quality": 4,
+      "id": "oneshot"
+    },
+    {
+      "name": "Quote hat",
+      "graphic": "images/cosmetics/gamingbox/quote_hat.png",
+      "quality": 2,
+      "id": "quotehat"
+    },
+    {
+      "name": "Stanley hat",
+      "graphic": "images/cosmetics/gamingbox/stanley_hat.png",
+      "quality": 3,
+      "id": "stanleyhat"
+    },
+    {
+      "name": "Richard hat",
+      "graphic": "images/cosmetics/gamingbox/Richard_hat.png",
+      "quality": 3,
+      "id": "richard"
+    },
+    {
+      "name": "Towering pillar",
+      "graphic": "images/cosmetics/gamingbox/tf2_hat.png",
+      "quality": 4,
+      "id": "tf2hat"
+    },
+    {
+      "name": "Moneybag",
+      "graphic": "images/cosmetics/gamingbox/warios_moneybag_hat.png",
+      "quality": 1,
+      "id": "wariobag"
+    }
+  ],
+  "boxes": [
+    {
+      "name": "Gaming box",
+      "graphic": "images/cosmetics/gamingbox/boxicon.png",
+      "price": 75,
+      "items": [
+        "bulletkin", "cubehat", "engigoggles", "hallowed", "hatkid", "hollow", "loser", "oneshot", "quotehat", "richard", "stanleyhat", "tf2hat", "wariobag", "wingman"
+      ]
+    }
+  ]
+}
