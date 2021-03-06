@@ -9,6 +9,10 @@ public class CosmeticItem {
         this.quantity = quantity;
     }
 
+    public void addOne() {
+        this.quantity++;
+    }
+
     public CosmeticType getType() {
         return type;
     }

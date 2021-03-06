@@ -1,8 +1,6 @@
 package sample.inventory.cosmetics;
 
 import org.json.JSONObject;
-import sample.inventory.cosmetics.CosmeticItem;
-import sample.inventory.cosmetics.CosmeticType;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -19,12 +17,10 @@ public class UserData {
         StringBuilder contentBuilder = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null)
-            {
+            while ((sCurrentLine = br.readLine()) != null) {
                 contentBuilder.append(sCurrentLine).append("\n");
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return contentBuilder.toString();
@@ -82,5 +78,18 @@ public class UserData {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addItem(CosmeticType cosmeticType) {
+        List<CosmeticItem> items = getItems();
+        for (CosmeticItem item : items) {
+            if (item.getType().equals(cosmeticType)) {
+                item.addOne();
+                setItems(items);
+                return;
+            }
+        }
+        items.add(new CosmeticItem(cosmeticType, 1));
+        setItems(items);
     }
 }
