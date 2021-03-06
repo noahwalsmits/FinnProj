@@ -20,3 +20,7 @@
     -fx-font-weight: bold;
     -fx-font-size: 20;
 }
+
+.crate-background{
+    -fx-background-color: gray;
+}
