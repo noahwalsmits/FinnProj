@@ -14,6 +14,8 @@ public class CosmeticItemGrid extends GridPane {
     private List<VBox> itemBoxes;
 
     public CosmeticItemGrid(List<CosmeticItem> items, int width, int height) {
+        //TODO item rarity color
+        //TODO improve layout
         super();
         this.getStyleClass().add("game-grid");
 

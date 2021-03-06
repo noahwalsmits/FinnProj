@@ -18,6 +18,7 @@ public class InventoryScreen implements ContentScreen {
         AnchorPane.setTopAnchor(this.itemPane, 0.0);
         AnchorPane.setBottomAnchor(this.itemPane, 0.0);
         this.anchorPane.getChildren().add(itemPane);
+        //TODO multi page inventory
     }
 
     @Override

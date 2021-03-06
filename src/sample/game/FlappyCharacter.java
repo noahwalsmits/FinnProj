@@ -22,6 +22,7 @@ public class FlappyCharacter {
     private static final double JUMP_ADDED_VELOCITY = 150.0;
 
     public FlappyCharacter(FlappyGame game) {
+        //TODO equip custom sprites
         this.drawable = new DrawableImage(SPRITE_X, 50, SPRITE_SIZE, SPRITE_SIZE, "penguin.png");
         this.jumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiJump1.wav").toString());
         this.bumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiBump.wav").toString());

@@ -11,6 +11,7 @@ public class SocialScreen implements ContentScreen {
     public SocialScreen() {
         this.root = new FlowPane();
         this.root.getChildren().add(new Button("Trade"));
+        //TODO placeholder screen
     }
 
     @Override

@@ -101,7 +101,6 @@ public class FlappyGame implements ContentScreen {
         ScreenConfig.CURRENT_SCREEN_WIDTH = this.root.getWidth();
         ScreenConfig.CURRENT_SCREEN_HEIGHT = this.root.getHeight();
 
-        //TODO resize drawables on seperate thread
         for (Drawable resizeable : this.drawables) {
             resizeable.resize();
         }
@@ -132,6 +131,7 @@ public class FlappyGame implements ContentScreen {
         label.setFont(Font.font(null, FontWeight.BOLD, 50));
         label.setAlignment(Pos.CENTER);
         this.root.getChildren().add(label);
+        //TODO update point count
     }
 
     public void scoredPoint() {
