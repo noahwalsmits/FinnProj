@@ -15,9 +15,9 @@ public class UserData {
         this.filePath = "userdata/userdata.json";
     }
 
-    private String readJson() {
+    public static String readJson(String path) {
         StringBuilder contentBuilder = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(this.filePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String sCurrentLine;
             while ((sCurrentLine = br.readLine()) != null)
             {
@@ -31,12 +31,12 @@ public class UserData {
     }
 
     public int getPoints() {
-        JSONObject object = new JSONObject(this.readJson());
+        JSONObject object = new JSONObject(readJson(this.filePath));
         return object.getInt("points");
     }
 
     private void setPoints(int points) {
-        JSONObject object = new JSONObject(this.readJson());
+        JSONObject object = new JSONObject(readJson(this.filePath));
         object.put("points", points);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
             writer.write(object.toString());
@@ -54,7 +54,7 @@ public class UserData {
     }
 
     public List<CosmeticItem> getItems() {
-        JSONObject object = new JSONObject(this.readJson());
+        JSONObject object = new JSONObject(readJson(this.filePath));
         JSONObject items = object.getJSONObject("items");
 
         List<CosmeticItem> itemList = new ArrayList<>();
@@ -70,7 +70,7 @@ public class UserData {
     }
 
     public void setItems(List<CosmeticItem> items) {
-        JSONObject object = new JSONObject(this.readJson());
+        JSONObject object = new JSONObject(readJson(this.filePath));
         JSONObject jsonItems = object.getJSONObject("items");
 
         for (CosmeticItem cosmeticItem : items) {

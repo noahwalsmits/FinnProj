@@ -1,5 +1,9 @@
 package sample.inventory.cosmetics;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class CosmeticType {
@@ -32,13 +36,37 @@ public class CosmeticType {
     }
 
     public static CosmeticType[] getCosmeticTypes() {
+        ArrayList<CosmeticType> list = new ArrayList<>();
+        JSONObject object = new JSONObject(UserData.readJson(CosmeticType.class.getResource("/cosmetics.json").toString().substring(6)));
+        JSONArray cosmetics = object.getJSONArray("cosmetics");
+
+        for (int i = 0; i < cosmetics.length(); i++) {
+            JSONObject cosmetic = cosmetics.getJSONObject(i);
+            CosmeticQuality quality = null;
+            switch (cosmetic.getInt("quality")) {
+                case 1:
+                    quality = CosmeticQuality.COMMON;
+                    break;
+                case 2:
+                    quality = CosmeticQuality.UNCOMMON;
+                    break;
+                case 3:
+                    quality = CosmeticQuality.RARE;
+                    break;
+                case 4:
+                    quality = CosmeticQuality.MYTHICAL;
+                    break;
+            }
+            list.add(new CosmeticType(cosmetic.getString("name"), cosmetic.getString("graphic"), quality, cosmetic.getString("id")));
+        }
+
         return new CosmeticType[]{
-                new CosmeticType("Abstract", "images/cosmetics/abstract.png", CosmeticQuality.NORMAL, "abstract"),
-                new CosmeticType("Flies", "images/cosmetics/flies.png", CosmeticQuality.NORMAL, "flies"),
-                new CosmeticType("Frog", "images/cosmetics/frog.png", CosmeticQuality.NORMAL, "frog"),
-                new CosmeticType("Penguin", "images/cosmetics/penguin.png", CosmeticQuality.NORMAL, "penguin"),
-                new CosmeticType("Snake", "images/cosmetics/snake.png", CosmeticQuality.NORMAL, "snake"),
-                new CosmeticType("Jerma", "images/cosmetics/jerma.png", CosmeticQuality.NORMAL, "jerma")
+                new CosmeticType("Abstract", "images/cosmetics/abstract.png", CosmeticQuality.COMMON, "abstract"),
+                new CosmeticType("Flies", "images/cosmetics/flies.png", CosmeticQuality.COMMON, "flies"),
+                new CosmeticType("Frog", "images/cosmetics/frog.png", CosmeticQuality.COMMON, "frog"),
+                new CosmeticType("Penguin", "images/cosmetics/penguin.png", CosmeticQuality.COMMON, "penguin"),
+                new CosmeticType("Snake", "images/cosmetics/snake.png", CosmeticQuality.COMMON, "snake"),
+                new CosmeticType("Jerma", "images/cosmetics/jerma.png", CosmeticQuality.COMMON, "jerma")
         };
     }
 

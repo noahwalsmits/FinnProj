@@ -1,6 +1,8 @@
 package sample.inventory.cosmetics;
 
 public enum CosmeticQuality {
-    NORMAL,
-    GOOD
+    COMMON,
+    UNCOMMON,
+    RARE,
+    MYTHICAL
 }
