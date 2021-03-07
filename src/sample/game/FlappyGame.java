@@ -16,6 +16,7 @@ import javafx.scene.text.FontWeight;
 import sample.ContentScreen;
 import sample.game.drawable.Drawable;
 import sample.game.drawable.ScreenConfig;
+import sample.inventory.cosmetics.UserData;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -131,7 +132,9 @@ public class FlappyGame implements ContentScreen {
         label.setFont(Font.font(null, FontWeight.BOLD, 50));
         label.setAlignment(Pos.CENTER);
         this.root.getChildren().add(label);
-        //TODO update point count
+
+        UserData userData = new UserData();
+        userData.changePoints(this.pointsGained);
     }
 
     public void scoredPoint() {
