@@ -14,10 +14,11 @@ public class UserData {
     public UserData() {
         this.filePath = getClass().getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
         File file = new File(this.filePath);
-        this.filePath = "\\" + file.getParentFile().getAbsolutePath() + "\\userdata.json";
+        this.filePath = "\\" + file.getParentFile().getAbsolutePath() + "\\LootGetData\\userdata.json";
         file = new File(this.filePath);
 
         if (!file.exists()) {
+            file.getParentFile().mkdir();
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
                 file.createNewFile();
                 writer.write(readResource("userdatadefault.json"));
