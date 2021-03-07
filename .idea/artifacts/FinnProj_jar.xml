@@ -12,6 +12,8 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/../../Software/.jdks/javafx-sdk-11.0.2/lib/javafx.swing.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../Software/.jdks/javafx-sdk-11.0.2/lib/javafx.controls.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../Software/.jdks/javafx-sdk-11.0.2/lib/javafx.graphics.jar" path-in-jar="/" />
+      <element id="library" level="project" name="lib" />
+      <element id="library" level="project" name="json-20200518" />
     </root>
   </artifact>
 </component>

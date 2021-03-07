@@ -10,7 +10,29 @@ public class UserData {
     private String filePath;
 
     public UserData() {
-        this.filePath = "userdata/userdata.json";
+        this.filePath = getClass().getProtectionDomain().getCodeSource().getLocation().toString().substring(6)+ "/../userdata.json";
+
+        File file = new File(this.filePath);
+        if (!file.exists()) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
+                writer.write(readJson(getClass().getResource("/userdatadefault.json").toString().substring(6)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            getPoints();
+            getEquippedItem();
+            getItems();
+        } catch (Exception e) {
+            System.out.println("DAMAGED DATA FILE");
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
+                writer.write(readJson(getClass().getResource("/userdatadefault.json").toString().substring(6)));
+            } catch (IOException e1) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static String readJson(String path) {

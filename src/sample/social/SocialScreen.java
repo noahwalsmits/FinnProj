@@ -10,7 +10,7 @@ public class SocialScreen implements ContentScreen {
 
     public SocialScreen() {
         this.root = new FlowPane();
-        this.root.getChildren().add(new Button("Trade"));
+        this.root.getChildren().add(new Button(getClass().getProtectionDomain().getCodeSource().getLocation().toString().substring(6)+ "/../userdata.json"));
         //TODO placeholder screen
     }
 
