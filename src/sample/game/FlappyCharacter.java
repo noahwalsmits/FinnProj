@@ -3,6 +3,7 @@ package sample.game;
 import javafx.scene.media.AudioClip;
 import sample.game.drawable.DrawableImage;
 import sample.game.drawable.ScreenConfig;
+import sample.inventory.cosmetics.UserData;
 
 public class FlappyCharacter {
     private DrawableImage drawable;
@@ -22,27 +23,22 @@ public class FlappyCharacter {
     private static final double JUMP_ADDED_VELOCITY = 150.0;
 
     public FlappyCharacter(FlappyGame game) {
-        //TODO equip custom sprites
-        this.drawable = new DrawableImage(SPRITE_X, 50, SPRITE_SIZE, SPRITE_SIZE, "penguin.png");
-        this.jumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiJump1.wav").toString());
-        this.bumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiBump.wav").toString());
-        this.scoreSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiCoin.wav").toString());
-        this.gameOverSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiDeath.wav").toString());
-        this.height = 900.0;
-        this.yVelocity = 0.0;
-        this.gameOver = false;
-        this.game = game;
-    }
-
-    public FlappyCharacter(FlappyGame game, String cosmetic) {
-        this(game);
-        if (cosmetic.equals("jerma")) {
-            this.drawable = new DrawableImage(SPRITE_X, 50, SPRITE_SIZE, SPRITE_SIZE, "jermafunny.png");
+        this.drawable = new DrawableImage(SPRITE_X, 50, SPRITE_SIZE, SPRITE_SIZE, new UserData().getEquippedItem().getImageResource().substring(7));
+        if (!new UserData().getEquippedItem().getId().equals("jerma")) {
+            this.jumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiJump1.wav").toString());
+            this.bumpSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiBump.wav").toString());
+            this.scoreSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiCoin.wav").toString());
+            this.gameOverSound = new AudioClip(getClass().getResource("/sounds/nsmbwiiDeath.wav").toString());
+        } else {
             this.jumpSound = new AudioClip(getClass().getResource("/sounds/aa.mp3").toString());
             this.bumpSound = new AudioClip(getClass().getResource("/sounds/oo.mp3").toString());
             this.scoreSound = new AudioClip(getClass().getResource("/sounds/ee.mp3").toString());
             this.gameOverSound = new AudioClip(getClass().getResource("/sounds/aHHHHhwaheha.mp3").toString());
         }
+        this.height = 900.0;
+        this.yVelocity = 0.0;
+        this.gameOver = false;
+        this.game = game;
     }
 
     public void update(double elapsedTime) {

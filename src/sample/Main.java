@@ -25,7 +25,7 @@ public class Main extends Application {
         this.baseBox.getChildren().add(this.getSideBar());
         this.baseBox.getChildren().add(new Pane());
 
-        primaryStage.setTitle("Game"); //TODO name and icon
+        primaryStage.setTitle("LootGet"); //TODO icon and music
         Scene scene = new Scene(this.baseBox);
         scene.getStylesheets().add("styles/style.css");
         primaryStage.setScene(scene);
