@@ -40,3 +40,8 @@
 .quality-mythical {
     -fx-background-color: black, purple;
 }
+
+.inventory-button {
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
