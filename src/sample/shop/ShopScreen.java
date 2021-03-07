@@ -1,6 +1,5 @@
 package sample.shop;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -8,6 +7,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import sample.ContentScreen;
 import sample.inventory.cosmetics.CosmeticType;
 import sample.inventory.cosmetics.UserData;
@@ -17,6 +18,7 @@ public class ShopScreen implements ContentScreen {
     private final Label pointCount;
     private final Label itemStatus;
     private AudioClip crateSound;
+    private final MediaPlayer mediaPlayer;
 
     public ShopScreen() {
         this.root = new VBox();
@@ -27,6 +29,9 @@ public class ShopScreen implements ContentScreen {
         this.itemStatus = new Label();
         this.itemStatus.getStyleClass().add("inventory-label");
         this.crateSound = new AudioClip(getClass().getResource("/sounds/Mvm_bought_upgrade.wav").toString());
+        this.mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sounds/music/shop_theme.mp3").toString()));
+        this.mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        this.mediaPlayer.play();
 
         HBox hBox = new HBox();
         hBox.getStyleClass().add("crate-background");
@@ -82,6 +87,6 @@ public class ShopScreen implements ContentScreen {
 
     @Override
     public void exit() {
-
+        this.mediaPlayer.stop();
     }
 }

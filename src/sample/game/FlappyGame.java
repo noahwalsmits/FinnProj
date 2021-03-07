@@ -10,6 +10,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -33,6 +35,7 @@ public class FlappyGame implements ContentScreen {
     private ScrollingBackground scrollingBackground;
     private Obstacle[] obstacles;
     private int pointsGained;
+    private final MediaPlayer mediaPlayer;
 
     public FlappyGame() {
         //setup root and resizing
@@ -80,6 +83,10 @@ public class FlappyGame implements ContentScreen {
             }
         };
         this.pointsGained = 0;
+
+        this.mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sounds/music/game_theme.mp3").toString()));
+        this.mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        this.mediaPlayer.play();
     }
 
     @Override
@@ -91,6 +98,7 @@ public class FlappyGame implements ContentScreen {
     public void exit() {
         this.animationTimer.stop();
         this.root.setOnMouseClicked(null);
+        this.mediaPlayer.stop();
     }
 
     public void start() {

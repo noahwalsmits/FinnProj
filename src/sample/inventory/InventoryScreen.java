@@ -3,6 +3,8 @@ package sample.inventory;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import sample.ContentScreen;
 import sample.inventory.cosmetics.CosmeticItem;
 import sample.inventory.cosmetics.UserData;
@@ -15,6 +17,7 @@ public class InventoryScreen implements ContentScreen {
     private final StackPane gridDisplay;
     private final GridPane[] itemPanes;
     private int currentItemPaneIndex;
+    private final MediaPlayer mediaPlayer;
 
     private static final int GRID_WIDTH = 6;
     private static final int GRID_HEIGHT = 4;
@@ -28,6 +31,9 @@ public class InventoryScreen implements ContentScreen {
         this.currentItemPaneIndex = 0;
         this.gridDisplay.getChildren().add(this.itemPanes[0]);
         this.changeGridIndex(-1);
+        this.mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sounds/music/inventory_theme.mp3").toString()));
+        this.mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        this.mediaPlayer.play();
 
         HBox navBox = new HBox();
         navBox.setAlignment(Pos.CENTER);
@@ -78,6 +84,6 @@ public class InventoryScreen implements ContentScreen {
 
     @Override
     public void exit() {
-
+        this.mediaPlayer.stop();
     }
 }
