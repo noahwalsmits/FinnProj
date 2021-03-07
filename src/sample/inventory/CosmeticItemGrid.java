@@ -1,13 +1,12 @@
 package sample.inventory;
 
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import sample.inventory.cosmetics.CosmeticItem;
+import sample.inventory.cosmetics.UserData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,6 @@ public class CosmeticItemGrid extends GridPane {
     private List<VBox> itemBoxes;
 
     public CosmeticItemGrid(List<CosmeticItem> items, int width, int height) {
-        //TODO improve layout
         super();
         this.getStyleClass().add("game-grid");
 
@@ -66,8 +64,6 @@ public class CosmeticItemGrid extends GridPane {
             ImageView imageView = new ImageView(img);
             imageView.fitWidthProperty().bind(imageBox.widthProperty());
             imageView.fitHeightProperty().bind(imageBox.heightProperty());
-//            image.maxWidth(Double.MAX_VALUE);
-//            image.maxHeight(Double.MAX_VALUE);
             vBox.setVgrow(imageBox, Priority.ALWAYS);
             imageBox.getChildren().add(imageView);
             vBox.getChildren().add(imageBox);
@@ -91,8 +87,9 @@ public class CosmeticItemGrid extends GridPane {
                     break;
             }
 
+            int finalI = i;
             vBox.setOnMouseClicked(mouseEvent -> {
-                //TODO equip item
+                new UserData().setEquippedItem(items.get(finalI).getType());
             });
         }
     }

@@ -92,4 +92,24 @@ public class UserData {
         items.add(new CosmeticItem(cosmeticType, 1));
         setItems(items);
     }
+
+    public CosmeticType getEquippedItem() {
+        JSONObject object = new JSONObject(readJson(this.filePath));
+        for (CosmeticType cosmeticType : CosmeticType.getCosmeticTypes()) {
+            if (cosmeticType.getId().equals(object.getString("equipped"))) {
+                return cosmeticType;
+            }
+        }
+        return null;
+    }
+
+    public void setEquippedItem(CosmeticType cosmeticType) {
+        JSONObject object = new JSONObject(readJson(this.filePath));
+        object.put("equipped", cosmeticType.getId());
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
+            writer.write(object.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
