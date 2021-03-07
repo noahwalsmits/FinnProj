@@ -46,8 +46,8 @@ public class Main extends Application {
     private void setContent(ContentScreen content) {
         if (this.currentScreen != null) {
             this.currentScreen.exit();
-            this.currentScreen = content;
         }
+        this.currentScreen = content;
         this.baseBox.getChildren().remove(1);
         this.baseBox.getChildren().add(content.getRoot());
         this.baseBox.setHgrow(content.getRoot(), Priority.ALWAYS);
