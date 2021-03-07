@@ -4,16 +4,16 @@
 }
 .game-grid-cell {
     -fx-background-color: black, white ;
-    -fx-background-insets: 0, 0 1 1 0 ;
+    -fx-background-insets: 0, 0 3 3 0 ;
 }
 .game-grid-cell.first-row {
-    -fx-background-insets: 0, 1 1 1 0 ;
+    -fx-background-insets: 0, 3 3 3 0 ;
 }
 .game-grid-cell.first-column {
-    -fx-background-insets: 0, 0 1 1 1 ;
+    -fx-background-insets: 0, 0 3 3 3 ;
 }
 .game-grid-cell.first-row.first-column {
-    -fx-background-insets: 0, 1 ;
+    -fx-background-insets: 0, 3 ;
 }
 
 .inventory-label {
@@ -23,4 +23,20 @@
 
 .crate-background{
     -fx-background-color: gray;
+}
+
+.quality-common {
+    -fx-background-color: black, teal;
+}
+
+.quality-uncommon {
+    -fx-background-color: black, green;
+}
+
+.quality-rare {
+    -fx-background-color: black, crimson;
+}
+
+.quality-mythical {
+    -fx-background-color: black, purple;
 }

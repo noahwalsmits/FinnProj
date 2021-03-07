@@ -1,9 +1,11 @@
 package sample.inventory;
 
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import sample.inventory.cosmetics.CosmeticItem;
 
@@ -14,7 +16,6 @@ public class CosmeticItemGrid extends GridPane {
     private List<VBox> itemBoxes;
 
     public CosmeticItemGrid(List<CosmeticItem> items, int width, int height) {
-        //TODO item rarity color
         //TODO improve layout
         super();
         this.getStyleClass().add("game-grid");
@@ -24,20 +25,20 @@ public class CosmeticItemGrid extends GridPane {
         //constraints
         for (int i = 0; i < width; i++) { //add column constraints
             ColumnConstraints columnConstraints = new ColumnConstraints();
-            columnConstraints.setPercentWidth(100.0/width);
+            columnConstraints.setPercentWidth(100.0 / width);
             columnConstraints.setHgrow(Priority.ALWAYS);
             this.getColumnConstraints().add(columnConstraints);
         }
         for (int i = 0; i < height; i++) { //add row constraints
             RowConstraints rowConstraints = new RowConstraints();
-            rowConstraints.setPercentHeight(100.0/height);
+            rowConstraints.setPercentHeight(100.0 / height);
             rowConstraints.setVgrow(Priority.ALWAYS);
             this.getRowConstraints().add(rowConstraints);
         }
 
         //fill cells with empty itemboxes
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
                 VBox pane = new VBox();
                 this.itemBoxes.add(pane);
                 pane.getStyleClass().add("game-grid-cell");
@@ -75,6 +76,24 @@ public class CosmeticItemGrid extends GridPane {
             quantity.getStyleClass().add("inventory-label");
             vBox.getChildren().add(quantity);
 
+            switch (items.get(i).getType().getQuality()) {
+                case COMMON:
+                    vBox.getStyleClass().add("quality-common");
+                    break;
+                case UNCOMMON:
+                    vBox.getStyleClass().add("quality-uncommon");
+                    break;
+                case RARE:
+                    vBox.getStyleClass().add("quality-rare");
+                    break;
+                case MYTHICAL:
+                    vBox.getStyleClass().add("quality-mythical");
+                    break;
+            }
+
+            vBox.setOnMouseClicked(mouseEvent -> {
+                //TODO equip item
+            });
         }
     }
 
