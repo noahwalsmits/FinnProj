@@ -37,7 +37,7 @@ public class CosmeticType {
 
     public static CosmeticType[] getCosmeticTypes() {
         ArrayList<CosmeticType> list = new ArrayList<>();
-        JSONObject object = new JSONObject(UserData.readJson(CosmeticType.class.getResource("/cosmetics.json").toString().substring(6)));
+        JSONObject object = new JSONObject(UserData.readResource("cosmetics.json"));
         JSONArray cosmetics = object.getJSONArray("cosmetics");
 
         for (int i = 0; i < cosmetics.length(); i++) {
@@ -60,15 +60,6 @@ public class CosmeticType {
             list.add(new CosmeticType(cosmetic.getString("name"), cosmetic.getString("graphic"), quality, cosmetic.getString("id")));
         }
         return list.toArray(new CosmeticType[list.size()]);
-
-//        return new CosmeticType[]{
-//                new CosmeticType("Abstract", "images/cosmetics/abstract.png", CosmeticQuality.COMMON, "abstract"),
-//                new CosmeticType("Flies", "images/cosmetics/flies.png", CosmeticQuality.COMMON, "flies"),
-//                new CosmeticType("Frog", "images/cosmetics/frog.png", CosmeticQuality.COMMON, "frog"),
-//                new CosmeticType("Penguin", "images/cosmetics/penguin.png", CosmeticQuality.COMMON, "penguin"),
-//                new CosmeticType("Snake", "images/cosmetics/snake.png", CosmeticQuality.COMMON, "snake"),
-//                new CosmeticType("Jerma", "images/cosmetics/jerma.png", CosmeticQuality.COMMON, "jerma")
-//        };
     }
 
     @Override

@@ -8,7 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" exported="" name="json-20200518" level="project" />
+    <orderEntry type="library" exported="" name="javafx-lib" level="project" />
   </component>
 </module>

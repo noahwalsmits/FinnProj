@@ -3,6 +3,8 @@ package sample.inventory.cosmetics;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.net.JarURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,12 +12,15 @@ public class UserData {
     private String filePath;
 
     public UserData() {
-        this.filePath = getClass().getProtectionDomain().getCodeSource().getLocation().toString().substring(6)+ "/../userdata.json";
-
+        this.filePath = getClass().getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
         File file = new File(this.filePath);
+        this.filePath = "\\" + file.getParentFile().getAbsolutePath() + "\\userdata.json";
+        file = new File(this.filePath);
+
         if (!file.exists()) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
-                writer.write(readJson(getClass().getResource("/userdatadefault.json").toString().substring(6)));
+                file.createNewFile();
+                writer.write(readResource("userdatadefault.json"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -28,7 +33,7 @@ public class UserData {
         } catch (Exception e) {
             System.out.println("DAMAGED DATA FILE");
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
-                writer.write(readJson(getClass().getResource("/userdatadefault.json").toString().substring(6)));
+                writer.write(readResource("userdatadefault.json"));
             } catch (IOException e1) {
                 e.printStackTrace();
             }
@@ -46,6 +51,31 @@ public class UserData {
             e.printStackTrace();
         }
         return contentBuilder.toString();
+    }
+
+    public static String readResource(String resource) {
+        String presetPath = Thread.currentThread().getContextClassLoader().getResource(resource).toString();
+        if (presetPath.contains("jar:")) {
+            try {
+                URL url = new URL(presetPath);
+                JarURLConnection jarURLConnection = (JarURLConnection)url.openConnection();
+
+                StringBuilder contentBuilder = new StringBuilder();
+                BufferedReader br = new BufferedReader(new InputStreamReader(jarURLConnection.getInputStream()));
+                String sCurrentLine;
+                while ((sCurrentLine = br.readLine()) != null) {
+                    contentBuilder.append(sCurrentLine).append("\n");
+                }
+                br.close();
+                return contentBuilder.toString();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            presetPath = presetPath.substring(presetPath.indexOf("/D:"));
+            return readJson(presetPath);
+        }
+        return "";
     }
 
     public int getPoints() {

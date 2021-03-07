@@ -63,7 +63,7 @@ public class LootBox {
 
     public static LootBox[] getLootCrates() {
         ArrayList<LootBox> list = new ArrayList<>();
-        JSONObject object = new JSONObject(UserData.readJson(CosmeticType.class.getResource("/cosmetics.json").toString().substring(6)));
+        JSONObject object = new JSONObject(UserData.readResource("cosmetics.json"));
         JSONArray boxes = object.getJSONArray("boxes");
         CosmeticType[] cosmeticTypes = CosmeticType.getCosmeticTypes();
 
