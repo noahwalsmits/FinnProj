@@ -1,13 +1,13 @@
-package sample.inventory;
+package lootget.inventory;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import sample.ContentScreen;
-import sample.inventory.cosmetics.CosmeticItem;
-import sample.inventory.cosmetics.UserData;
+import lootget.ContentScreen;
+import lootget.inventory.cosmetics.CosmeticItem;
+import lootget.inventory.cosmetics.UserData;
 
 import java.util.ArrayList;
 import java.util.List;

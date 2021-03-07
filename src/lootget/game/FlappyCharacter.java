@@ -1,9 +1,9 @@
-package sample.game;
+package lootget.game;
 
 import javafx.scene.media.AudioClip;
-import sample.game.drawable.DrawableImage;
-import sample.game.drawable.ScreenConfig;
-import sample.inventory.cosmetics.UserData;
+import lootget.game.drawable.DrawableImage;
+import lootget.game.drawable.ScreenConfig;
+import lootget.inventory.cosmetics.UserData;
 
 public class FlappyCharacter {
     private DrawableImage drawable;

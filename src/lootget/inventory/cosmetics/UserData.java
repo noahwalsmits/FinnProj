@@ -1,4 +1,4 @@
-package sample.inventory.cosmetics;
+package lootget.inventory.cosmetics;
 
 import org.json.JSONObject;
 

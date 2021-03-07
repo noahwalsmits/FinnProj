@@ -1,9 +1,8 @@
-package sample.game;
+package lootget.game;
 
-import javafx.stage.Screen;
-import sample.game.drawable.Drawable;
-import sample.game.drawable.DrawableImage;
-import sample.game.drawable.ScreenConfig;
+import lootget.game.drawable.Drawable;
+import lootget.game.drawable.DrawableImage;
+import lootget.game.drawable.ScreenConfig;
 
 import java.util.ArrayList;
 import java.util.List;

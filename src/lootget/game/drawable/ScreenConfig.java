@@ -1,4 +1,4 @@
-package sample.game.drawable;
+package lootget.game.drawable;
 
 public class ScreenConfig {
     public static final double BASE_SCREEN_WIDTH = 1920;

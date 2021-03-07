@@ -1,4 +1,4 @@
-package sample.game;
+package lootget.game;
 
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Pos;
@@ -15,10 +15,10 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import sample.ContentScreen;
-import sample.game.drawable.Drawable;
-import sample.game.drawable.ScreenConfig;
-import sample.inventory.cosmetics.UserData;
+import lootget.ContentScreen;
+import lootget.game.drawable.Drawable;
+import lootget.game.drawable.ScreenConfig;
+import lootget.inventory.cosmetics.UserData;
 
 import java.util.ArrayList;
 import java.util.Arrays;

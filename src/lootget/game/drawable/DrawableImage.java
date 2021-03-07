@@ -1,4 +1,4 @@
-package sample.game.drawable;
+package lootget.game.drawable;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

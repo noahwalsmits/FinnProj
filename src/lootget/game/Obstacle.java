@@ -1,8 +1,8 @@
-package sample.game;
+package lootget.game;
 
-import sample.game.drawable.Drawable;
-import sample.game.drawable.DrawableImage;
-import sample.game.drawable.ScreenConfig;
+import lootget.game.drawable.Drawable;
+import lootget.game.drawable.DrawableImage;
+import lootget.game.drawable.ScreenConfig;
 
 public class Obstacle {
     private double xPosition;
