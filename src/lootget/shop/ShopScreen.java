@@ -1,4 +1,4 @@
-package sample.shop;
+package lootget.shop;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -9,9 +9,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import sample.ContentScreen;
-import sample.inventory.cosmetics.CosmeticType;
-import sample.inventory.cosmetics.UserData;
+import lootget.ContentScreen;
+import lootget.inventory.cosmetics.CosmeticType;
+import lootget.inventory.cosmetics.UserData;
 
 public class ShopScreen implements ContentScreen {
     private final Pane root;

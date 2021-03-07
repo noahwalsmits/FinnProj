@@ -1,4 +1,4 @@
-package sample.social;
+package lootget.social;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import sample.ContentScreen;
+import lootget.ContentScreen;
 
 public class SocialScreen implements ContentScreen {
     private final Pane root;

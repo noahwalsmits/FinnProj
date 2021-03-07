@@ -1,4 +1,4 @@
-package sample;
+package lootget;
 
 import javafx.scene.Node;
 

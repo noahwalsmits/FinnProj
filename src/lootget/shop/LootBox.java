@@ -1,9 +1,9 @@
-package sample.shop;
+package lootget.shop;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import sample.inventory.cosmetics.CosmeticType;
-import sample.inventory.cosmetics.UserData;
+import lootget.inventory.cosmetics.CosmeticType;
+import lootget.inventory.cosmetics.UserData;
 
 import java.util.ArrayList;
 import java.util.Random;

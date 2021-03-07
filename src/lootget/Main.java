@@ -1,4 +1,4 @@
-package sample;
+package lootget;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -9,10 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import sample.game.FlappyGame;
-import sample.inventory.InventoryScreen;
-import sample.shop.ShopScreen;
-import sample.social.SocialScreen;
+import lootget.game.FlappyGame;
+import lootget.inventory.InventoryScreen;
+import lootget.shop.ShopScreen;
+import lootget.social.SocialScreen;
 
 public class Main extends Application {
     private HBox baseBox;
