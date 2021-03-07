@@ -4,16 +4,17 @@
 }
 .game-grid-cell {
     -fx-background-color: black, white ;
-    -fx-background-insets: 0, 0 3 3 0 ;
+    -fx-background-insets: 0, 10 10 10 10 ;
+    -fx-padding: 10;
 }
 .game-grid-cell.first-row {
-    -fx-background-insets: 0, 3 3 3 0 ;
+
 }
 .game-grid-cell.first-column {
-    -fx-background-insets: 0, 0 3 3 3 ;
+
 }
 .game-grid-cell.first-row.first-column {
-    -fx-background-insets: 0, 3 ;
+
 }
 
 .inventory-label {
@@ -27,19 +28,19 @@
 }
 
 .quality-common {
-    -fx-background-color: black, teal;
+    -fx-background-color: teal, lightgray;
 }
 
 .quality-uncommon {
-    -fx-background-color: black, green;
+    -fx-background-color: green, lightgray;
 }
 
 .quality-rare {
-    -fx-background-color: black, crimson;
+    -fx-background-color: crimson, lightgray;
 }
 
 .quality-mythical {
-    -fx-background-color: black, purple;
+    -fx-background-color: purple, lightgray;
 }
 
 .inventory-button {

@@ -24,10 +24,10 @@ public class InventoryScreen implements ContentScreen {
         this.gridDisplay = new StackPane();
         this.itemPanes = this.getGrids();
         this.root.getChildren().add(this.gridDisplay);
+        this.root.setVgrow(this.gridDisplay, Priority.ALWAYS);
         this.currentItemPaneIndex = 0;
         this.gridDisplay.getChildren().add(this.itemPanes[0]);
         this.changeGridIndex(-1);
-        //TODO test multi page inventory
 
         HBox navBox = new HBox();
         navBox.setAlignment(Pos.CENTER);
