@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -25,7 +26,8 @@ public class Main extends Application {
         this.baseBox.getChildren().add(this.getSideBar());
         this.baseBox.getChildren().add(new Pane());
 
-        primaryStage.setTitle("LootGet"); //TODO icon and music
+        primaryStage.setTitle("LootGet");
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/images/cosmetics/lootgetbox/boxiconalt.png")));
         Scene scene = new Scene(this.baseBox);
         scene.getStylesheets().add("styles/style.css");
         primaryStage.setScene(scene);
