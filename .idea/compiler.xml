@@ -12,6 +12,7 @@
       <entry name="!?*.clj" />
       <entry name="*.png" />
       <entry name="*.jpg" />
+      <entry name="*.json" />
     </wildcardResourcePatterns>
   </component>
 </project>

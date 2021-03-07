@@ -1,0 +1,411 @@
+{
+  "cosmetics": [
+    {
+      "name": "Wingman cap",
+      "graphic": "images/cosmetics/gamingbox/wingman_hat.png",
+      "quality": 2,
+      "id": "wingman"
+    },
+    {
+      "name": "Bullet kin hat",
+      "graphic": "images/cosmetics/gamingbox/bullet_kin_hat.png",
+      "quality": 3,
+      "id": "bulletkin"
+    },
+    {
+      "name": "Cube hat",
+      "graphic": "images/cosmetics/gamingbox/cubehat.png",
+      "quality": 2,
+      "id": "cubehat"
+    },
+    {
+      "name": "Engineer goggles",
+      "graphic": "images/cosmetics/gamingbox/engi_goggles.png",
+      "quality": 1,
+      "id": "engigoggles"
+    },
+    {
+      "name": "Hallowed hat",
+      "graphic": "images/cosmetics/gamingbox/hallowed_hat.png",
+      "quality": 2,
+      "id": "hallowed"
+    },
+    {
+      "name": "Loser cap",
+      "graphic": "images/cosmetics/gamingbox/loser_cap.png",
+      "quality": 1,
+      "id": "loser"
+    },
+    {
+      "name": "Hat kid hat",
+      "graphic": "images/cosmetics/gamingbox/hat_kid_hat.png",
+      "quality": 1,
+      "id": "hatkid"
+    },
+    {
+      "name": "Hollow hat",
+      "graphic": "images/cosmetics/gamingbox/hollow_hat.png",
+      "quality": 3,
+      "id": "hollow"
+    },
+    {
+      "name": "Oneshot hat",
+      "graphic": "images/cosmetics/gamingbox/Oneshot_hat.png",
+      "quality": 4,
+      "id": "oneshot"
+    },
+    {
+      "name": "Quote hat",
+      "graphic": "images/cosmetics/gamingbox/quote_hat.png",
+      "quality": 2,
+      "id": "quotehat"
+    },
+    {
+      "name": "Stanley hat",
+      "graphic": "images/cosmetics/gamingbox/stanley_hat.png",
+      "quality": 3,
+      "id": "stanleyhat"
+    },
+    {
+      "name": "Richard hat",
+      "graphic": "images/cosmetics/gamingbox/Richard_hat.png",
+      "quality": 3,
+      "id": "richard"
+    },
+    {
+      "name": "Towering pillar",
+      "graphic": "images/cosmetics/gamingbox/tf2_hat.png",
+      "quality": 4,
+      "id": "tf2hat"
+    },
+    {
+      "name": "Moneybag",
+      "graphic": "images/cosmetics/gamingbox/warios_moneybag_hat.png",
+      "quality": 1,
+      "id": "wariobag"
+    },
+
+
+
+    {
+      "name": "25 heart hat",
+      "graphic": "images/cosmetics/lovebox/25_hart_hat.png",
+      "quality": 3,
+      "id": "25heart"
+    },
+    {
+      "name": "Broken heart",
+      "graphic": "images/cosmetics/lovebox/broken_hart_hat.png",
+      "quality": 2,
+      "id": "brokenheart"
+    },
+    {
+      "name": "Heart mask",
+      "graphic": "images/cosmetics/lovebox/Hart_mask.png",
+      "quality": 1,
+      "id": "heartmask"
+    },
+    {
+      "name": "Heart container",
+      "graphic": "images/cosmetics/lovebox/Heart_container_hat.png",
+      "quality": 2,
+      "id": "heartcontainer"
+    },
+    {
+      "name": "Love ball",
+      "graphic": "images/cosmetics/lovebox/love_ball_hat.png",
+      "quality": 2,
+      "id": "loveball"
+    },
+    {
+      "name": "Love glasses",
+      "graphic": "images/cosmetics/lovebox/love_glasses_hat.png",
+      "quality": 3,
+      "id": "loveglasses"
+    },
+    {
+      "name": "Love goggles",
+      "graphic": "images/cosmetics/lovebox/love_goggles.png",
+      "quality": 1,
+      "id": "lovegoggles"
+    },
+    {
+      "name": "Lovely cake",
+      "graphic": "images/cosmetics/lovebox/lovely_cake_hat.png",
+      "quality": 4,
+      "id": "lovelycake"
+    },
+    {
+      "name": "Lovely top hat",
+      "graphic": "images/cosmetics/lovebox/lovely_tophat.png",
+      "quality": 1,
+      "id": "lovelytophat"
+    },
+
+
+
+    {
+      "name": "Beach ball",
+      "graphic": "images/cosmetics/summerbox/beach_ball_hat.png",
+      "quality": 1,
+      "id": "beachball"
+    },
+    {
+      "name": "Bird shades",
+      "graphic": "images/cosmetics/summerbox/bird_shades.png",
+      "quality": 3,
+      "id": "birdshades"
+    },
+    {
+      "name": "Frog",
+      "graphic": "images/cosmetics/summerbox/frog_hatt.png",
+      "quality": 2,
+      "id": "frog"
+    },
+    {
+      "name": "Tropical island",
+      "graphic": "images/cosmetics/summerbox/island_hat.png",
+      "quality": 3,
+      "id": "island"
+    },
+    {
+      "name": "lighthouse",
+      "graphic": "images/cosmetics/summerbox/lighthouse_hat.png",
+      "quality": 3,
+      "id": "lighthouse"
+    },
+    {
+      "name": "Summer shades",
+      "graphic": "images/cosmetics/summerbox/summer_shades.png",
+      "quality": 2,
+      "id": "summershades"
+    },
+    {
+      "name": "Sun hat",
+      "graphic": "images/cosmetics/summerbox/sun_hat.png",
+      "quality": 1,
+      "id": "sunhat"
+    },
+    {
+      "name": "Sunglasses",
+      "graphic": "images/cosmetics/summerbox/sunglasses.png",
+      "quality": 1,
+      "id": "sunglasses"
+    },
+    {
+      "name": "The Sun",
+      "graphic": "images/cosmetics/summerbox/the_sun_hat.png",
+      "quality": 4,
+      "id": "thesun"
+    },
+    {
+      "name": "Watermelon ball",
+      "graphic": "images/cosmetics/summerbox/watermelon_ball_hat.png",
+      "quality": 2,
+      "id": "watermelon"
+    },
+
+
+
+    {
+      "name": "Bird hat",
+      "graphic": "images/cosmetics/lootgetbox/bird_hat.png",
+      "quality": 2,
+      "id": "birdhat"
+    },
+    {
+      "name": "Bowler hat",
+      "graphic": "images/cosmetics/lootgetbox/bowler_hat.png",
+      "quality": 2,
+      "id": "bowlerhat"
+    },
+    {
+      "name": "LootGet box",
+      "graphic": "images/cosmetics/lootgetbox/boxhat.png",
+      "quality": 2,
+      "id": "lootgetbox"
+    },
+    {
+      "name": "Broken LootGet box",
+      "graphic": "images/cosmetics/lootgetbox/broken_box_hat.png",
+      "quality": 1,
+      "id": "brokenlootgetbox"
+    },
+    {
+      "name": "Candle",
+      "graphic": "images/cosmetics/lootgetbox/candle_hat.png",
+      "quality": 3,
+      "id": "candle"
+    },
+    {
+      "name": "Crown",
+      "graphic": "images/cosmetics/lootgetbox/crown_hat.png",
+      "quality": 4,
+      "id": "crown"
+    },
+    {
+      "name": "Fez",
+      "graphic": "images/cosmetics/lootgetbox/fez.png",
+      "quality": 2,
+      "id": "fez"
+    },
+    {
+      "name": "Flies",
+      "graphic": "images/cosmetics/lootgetbox/Fly_hat.png",
+      "quality": 3,
+      "id": "flies"
+    },
+    {
+      "name": "Knight helmet",
+      "graphic": "images/cosmetics/lootgetbox/knight_hat.png",
+      "quality": 3,
+      "id": "knight"
+    },
+    {
+      "name": "Ram helmet",
+      "graphic": "images/cosmetics/lootgetbox/ram_hat.png",
+      "quality": 3,
+      "id": "ram"
+    },
+    {
+      "name": "Sad mask",
+      "graphic": "images/cosmetics/lootgetbox/Sad_mask.png",
+      "quality": 1,
+      "id": "sadmask"
+    },
+    {
+      "name": "Top hat",
+      "graphic": "images/cosmetics/lootgetbox/Tophatt.png",
+      "quality": 1,
+      "id": "tophat"
+    },
+
+
+
+    {
+      "name": "Abstract",
+      "graphic": "images/cosmetics/deluxebox/abstract_hat.png",
+      "quality": 3,
+      "id": "abstract"
+    },
+    {
+      "name": "Alien ship",
+      "graphic": "images/cosmetics/deluxebox/alien_ship_hat.png",
+      "quality": 1,
+      "id": "alienship"
+    },
+    {
+      "name": "Cake",
+      "graphic": "images/cosmetics/deluxebox/cakehat.png",
+      "quality": 3,
+      "id": "cake"
+    },
+    {
+      "name": "Crappy bird",
+      "graphic": "images/cosmetics/deluxebox/crappy_bird.png",
+      "quality": 4,
+      "id": "crappybird"
+    },
+    {
+      "name": "Happy and sad mask",
+      "graphic": "images/cosmetics/deluxebox/happy_and_sad_mask.png",
+      "quality": 1,
+      "id": "happyandsad"
+    },
+    {
+      "name": "Lantern",
+      "graphic": "images/cosmetics/deluxebox/lantern_hat.png",
+      "quality": 2,
+      "id": "lantern"
+    },
+    {
+      "name": "Moneybag",
+      "graphic": "images/cosmetics/deluxebox/moneybag_hat.png",
+      "quality": 1,
+      "id": "moneybag"
+    },
+    {
+      "name": "Penguin",
+      "graphic": "images/cosmetics/deluxebox/penguin.png",
+      "quality": 2,
+      "id": "penguin"
+    },
+    {
+      "name": "Shield",
+      "graphic": "images/cosmetics/deluxebox/Shield_hat.png",
+      "quality": 1,
+      "id": "shield"
+    },
+    {
+      "name": "Snake",
+      "graphic": "images/cosmetics/deluxebox/snake_hat.png",
+      "quality": 2,
+      "id": "snake"
+    },
+    {
+      "name": "Steampunk hat",
+      "graphic": "images/cosmetics/deluxebox/steampunkhat.png",
+      "quality": 2,
+      "id": "steampunkhat"
+    },
+
+
+
+    {
+      "name": "Jerma985",
+      "graphic": "images/cosmetics/dorkcube/jerma.png",
+      "quality": 4,
+      "id": "jerma"
+    }
+  ],
+  "boxes": [
+    {
+      "name": "LootGet box",
+      "graphic": "images/cosmetics/lootgetbox/boxicon.png",
+      "price": 10,
+      "items": [
+        "birdhat", "bowlerhat", "lootgetbox", "brokenlootgetbox", "candle", "crown", "fez", "flies", "knight", "ram", "sadmask", "tophat"
+      ]
+    },
+    {
+      "name": "Summer box",
+      "graphic": "images/cosmetics/summerbox/boxicon.png",
+      "price": 30,
+      "items": [
+        "beachball", "birdshades", "frog", "island", "lighthouse", "summershades", "sunhat", "sunglasses", "thesun", "watermelon"
+      ]
+    },
+    {
+      "name": "Love box",
+      "graphic": "images/cosmetics/lovebox/boxicon.png",
+      "price": 30,
+      "items": [
+        "25heart", "brokenheart", "heartmask", "heartcontainer", "loveball", "loveglasses", "lovegoggles", "lovelycake", "lovelytophat"
+      ]
+    },
+    {
+      "name": "Gaming box",
+      "graphic": "images/cosmetics/gamingbox/boxicon.png",
+      "price": 40,
+      "items": [
+        "bulletkin", "cubehat", "engigoggles", "hallowed", "hatkid", "hollow", "loser", "oneshot", "quotehat", "richard", "stanleyhat", "tf2hat", "wariobag", "wingman"
+      ]
+    },
+    {
+      "name": "Deluxe box",
+      "graphic": "images/cosmetics/deluxebox/boxicon.png",
+      "price": 40,
+      "items": [
+        "abstract", "alienship", "cake", "crappybird", "happyandsad", "lantern", "moneybag", "penguin", "shield", "snake", "steampunkhat"
+      ]
+    },
+    {
+      "name": "Dork Cube",
+      "graphic": "images/cosmetics/dorkcube/boxicon.png",
+      "price": 100,
+      "items": [
+        "jerma"
+      ]
+    }
+  ]
+}
