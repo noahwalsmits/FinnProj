@@ -22,7 +22,8 @@
 }
 
 .crate-background{
-    -fx-background-color: gray;
+    -fx-background-color: black, lightgray;
+    -fx-background-insets: 0, 3 3 3 3 ;
 }
 
 .quality-common {

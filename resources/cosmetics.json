@@ -360,19 +360,11 @@
   ],
   "boxes": [
     {
-      "name": "Gaming box",
-      "graphic": "images/cosmetics/gamingbox/boxicon.png",
-      "price": 40,
+      "name": "LootGet box",
+      "graphic": "images/cosmetics/lootgetbox/boxicon.png",
+      "price": 10,
       "items": [
-        "bulletkin", "cubehat", "engigoggles", "hallowed", "hatkid", "hollow", "loser", "oneshot", "quotehat", "richard", "stanleyhat", "tf2hat", "wariobag", "wingman"
-      ]
-    },
-    {
-      "name": "Love box",
-      "graphic": "images/cosmetics/lovebox/boxicon.png",
-      "price": 30,
-      "items": [
-        "25heart", "brokenheart", "heartmask", "heartcontainer", "loveball", "loveglasses", "lovegoggles", "lovelycake", "lovelytophat"
+        "birdhat", "bowlerhat", "lootgetbox", "brokenlootgetbox", "candle", "crown", "fez", "flies", "knight", "ram", "sadmask", "tophat"
       ]
     },
     {
@@ -384,11 +376,19 @@
       ]
     },
     {
-      "name": "LootGet box",
-      "graphic": "images/cosmetics/lootgetbox/boxicon.png",
-      "price": 10,
+      "name": "Love box",
+      "graphic": "images/cosmetics/lovebox/boxicon.png",
+      "price": 30,
       "items": [
-        "birdhat", "bowlerhat", "lootgetbox", "brokenlootgetbox", "candle", "crown", "fez", "flies", "knight", "ram", "sadmask", "tophat"
+        "25heart", "brokenheart", "heartmask", "heartcontainer", "loveball", "loveglasses", "lovegoggles", "lovelycake", "lovelytophat"
+      ]
+    },
+    {
+      "name": "Gaming box",
+      "graphic": "images/cosmetics/gamingbox/boxicon.png",
+      "price": 40,
+      "items": [
+        "bulletkin", "cubehat", "engigoggles", "hallowed", "hatkid", "hollow", "loser", "oneshot", "quotehat", "richard", "stanleyhat", "tf2hat", "wariobag", "wingman"
       ]
     },
     {

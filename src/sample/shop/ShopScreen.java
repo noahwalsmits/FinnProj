@@ -1,5 +1,6 @@
 package sample.shop;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -20,12 +21,18 @@ public class ShopScreen implements ContentScreen {
     public ShopScreen() {
         this.root = new VBox();
         this.pointCount = new Label();
+        this.pointCount.getStyleClass().add("inventory-label");
         this.root.getChildren().add(this.pointCount);
         this.updatePointCount();
         this.itemStatus = new Label();
+        this.itemStatus.getStyleClass().add("inventory-label");
         this.crateSound = new AudioClip(getClass().getResource("/sounds/Mvm_bought_upgrade.wav").toString());
 
         HBox hBox = new HBox();
+        hBox.getStyleClass().add("crate-background");
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setSpacing(15.);
+
         LootBox[] lootBoxes = LootBox.getLootCrates();
         for (LootBox lootBox : lootBoxes) {
             VBox pane = new VBox();
@@ -48,7 +55,10 @@ public class ShopScreen implements ContentScreen {
             labelName.getStyleClass().add("inventory-label");
             pane.getChildren().add(labelName);
 
-            pane.getChildren().add(new ImageView(lootBox.getImageResource()));
+            ImageView imageView = new ImageView(lootBox.getImageResource());
+            imageView.setFitWidth(200.);
+            imageView.setFitHeight(200.);
+            pane.getChildren().add(imageView);
 
             Label labelPrice = new Label(Integer.toString(lootBox.getPrice()));
             labelPrice.getStyleClass().add("inventory-label");
